@@ -1,0 +1,6 @@
+ID,Major group,Family,Genus hybrid marker,Genus,Species hybrid marker,Species,Infraspecific rank,Infraspecific epithet,Authorship,Taxonomic status in TPL,Nomenclatural status from original data source,Confidence level,Source,Source id,IPNI id,Publication,Collation,Page,Date
+kew-2304,A,Acoraceae,,Acorus,,"calamus",,"","L.",Accepted,,H,WCSP,2304,84009-1,"Sp. Pl.","324","","1753"
+kew-2305,A,Acoraceae,,Acorus,,"calamus",var.,"americanus","Raf.",Accepted,,L,WCSP,2305,,"Med. Fl.","1: 25","","1828"
+kew-2306,A,Acoraceae,,Acorus,,"calamus",var.,"angustatus","Besser",Accepted,,L,WCSP,2306,,"Flora","17(Beibl.): 30","","1834"
+kew-2309,A,Acoraceae,,Acorus,,"calamus",var.,"calamus","",Accepted,,L,WCSP,2309,,"Unknown","","",""
+kew-2322,A,Acoraceae,,Acorus,,"gramineus",,"","Sol.",Accepted,,H,WCSP,2322,84019-1,"Hort. Kew.","1: 474","","1789"

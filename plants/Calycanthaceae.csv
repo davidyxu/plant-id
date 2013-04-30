@@ -1,0 +1,13 @@
+ID,Major group,Family,Genus hybrid marker,Genus,Species hybrid marker,Species,Infraspecific rank,Infraspecific epithet,Authorship,Taxonomic status in TPL,Nomenclatural status from original data source,Confidence level,Source,Source id,IPNI id,Publication,Collation,Page,Date
+kew-2693985,A,Calycanthaceae,,Calycanthus,,"brockianus",,"","Ferry & Ferry f.",Accepted,,H,WCSP,382432,933848-1,"Sida","12: 340","","1987"
+kew-2693988,A,Calycanthaceae,,Calycanthus,,"chinensis",,"","(W.C.Cheng & S.Y.Chang) P.T.Li",Accepted,,H,WCSP,382434,77067552-1,"J. S. China Agric. Univ.","21(4): 60","","2000"
+kew-2693995,A,Calycanthaceae,,Calycanthus,,"floridus",,"","L.",Accepted,,H,WCSP,382441,42922-2,"Syst. Nat. ed. 10","2: 1066","","1759"
+kew-2693996,A,Calycanthaceae,,Calycanthus,,"floridus",var.,"glaucus","(Willd.) Torr. & A.Gray",Accepted,,L,WCSP,382442,42923-2,"Fl. N. Amer.","1: 475","","1840"
+kew-2694014,A,Calycanthaceae,,Calycanthus,,"occidentalis",,"","Hook. & Arn.",Accepted,,H,WCSP,382460,139230-1,"Bot. Beechey Voy.","340","","1839"
+kew-2718296,A,Calycanthaceae,,Chimonanthus,,"campanulatus",,"","R.H.Chang & C.S.Ding",Accepted,,H,WCSP,382892,139241-1,"Acta Phytotax. Sin.","18: 330","","1980"
+kew-2718299,A,Calycanthaceae,,Chimonanthus,,"grammatus",,"","M.C.Liu",Accepted,,H,WCSP,382895,903871-1,"J. Nanjing Inst. Forest.","1984(2): 80","","1984"
+kew-2718302,A,Calycanthaceae,,Chimonanthus,,"nitens",,"","Oliv.",Accepted,,H,WCSP,382898,139245-1,"Hooker's Icon. Pl.","16: t. 1600","","1887"
+kew-2718303,A,Calycanthaceae,,Chimonanthus,,"nitens",var.,"salicifolius","(S.Y.Hu) H.D.Zhang",Accepted,,L,WCSP,382899,,"in Fl. Jiangxi","2: 1052","","2004"
+kew-2718305,A,Calycanthaceae,,Chimonanthus,,"praecox",,"","(L.) Link",Accepted,,H,WCSP,382901,139248-1,"Enum. Hort. Berol. Alt.","2: 66","","1822"
+kew-2718312,A,Calycanthaceae,,Chimonanthus,,"zhejiangensis",,"","M.C.Liu",Accepted,,H,WCSP,382908,903872-1,"J. Nanjing Inst. Forest.","1984(2): 79","","1984"
+kew-2860273,A,Calycanthaceae,,Idiospermum,,"australiense",,"","(Diels) S.T.Blake",Accepted,,H,WCSP,385563,434684-1,"Contr. Queensland Herb.","12: 5","","1972"

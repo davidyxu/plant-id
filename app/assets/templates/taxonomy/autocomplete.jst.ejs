@@ -1,0 +1,7 @@
+	<ul>
+		<% collection.each(function(model) { %>
+			<li id="<%= model.id %>">
+				<%= model.get('name') %>
+			</li>
+		<% }); %>
+	</ul>

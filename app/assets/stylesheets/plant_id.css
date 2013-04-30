@@ -1,0 +1,47 @@
+.map-container {
+	float: left;
+	margin-left: 40px;
+	margin-top: 20px;
+	width: 75%;
+}
+
+.filter-option {
+	margin-bottom: 5px;
+}
+
+.filter-menu {
+	margin-left: 20px;
+	margin-top: 20px;
+	float: left;
+	width: 210px;
+}
+
+.map-address {
+	margin-top: 10px;
+	float: right;
+}
+
+.search-error {
+	margin-top: 10px;
+}
+
+.back {
+	width: 200px;
+}
+
+.submit-specimen {
+	width: 205px;
+}
+
+.listed-specimen {
+	height: 75px;
+	margin-bottom: 10px;
+}
+
+.unshaded {
+	background-color: #EDFFE7;
+}
+
+.shaded {
+	background-color: #D0FFBE;
+}

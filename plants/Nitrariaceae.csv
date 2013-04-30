@@ -1,0 +1,13 @@
+ID,Major group,Family,Genus hybrid marker,Genus,Species hybrid marker,Species,Infraspecific rank,Infraspecific epithet,Authorship,Taxonomic status in TPL,Nomenclatural status from original data source,Confidence level,Source,Source id,IPNI id,Publication,Collation,Page,Date
+tro-34600189,A,Nitrariaceae,,Nitraria,,"pamirica",,"","L.I. Vassiljeva",Accepted,,M,TRO,34600189,,"Novosti Sist. Vyss. Rast.","11: 341","341","1974"
+tro-34600012,A,Nitrariaceae,,Nitraria,,"retusa",,"","(Forssk.) Asch.",Accepted,,M,TRO,34600012,873339-1,"Verh. Bot. Vereins Prov. Brandenburg","18: 94","94","1876"
+tro-50126115,A,Nitrariaceae,,Nitraria,,"roborowskii",,"","Kom.",Accepted,,M,TRO,50126115,873340-1,"Trudy Imp. S.-Peterburgsk. Bot. Sada","29(1): 168","168","1908"
+kew-2382411,A,Nitrariaceae,,Nitraria,,"schoberi",,"","L.",Accepted,,M,WCSP (in review),511768,873341-1,"Syst. Nat. ed. 10","2: 1044","","1759"
+tro-34600191,A,Nitrariaceae,,Nitraria,,"sibirica",,"","Pall.",Accepted,,M,TRO,34600191,,"Fl. Ross.","1: 80","80","1784"
+tro-50126114,A,Nitrariaceae,,Nitraria,,"sphaerocarpa",,"","Maxim.",Accepted,,M,TRO,50126114,873346-1,"Mélanges Biol. Bull. Phys.-Math. Acad. Imp. Sci. Saint-Pétersbourg","11: 657","657","1883"
+tro-50126119,A,Nitrariaceae,,Nitraria,,"tangutorum",,"","Bobrov",Accepted,,M,TRO,50126119,873347-1,"Sovetsk. Bot.","14(1): 19, 26","19","1946"
+kew-2548698,A,Nitrariaceae,,Peganum,,"harmala",,"","L.",Accepted,,M,WCSP (in review),675728,774545-1,"Sp. Pl.","444","","1753"
+tro-34600014,A,Nitrariaceae,,Peganum,,"mexicanum",,"","A. Gray",Accepted,,M,TRO,34600014,774546-1,"Smithsonian Contr. Knowl.","3(5): 30","30","1852"
+tro-50126120,A,Nitrariaceae,,Peganum,,"multisectum",,"","(Maxim.) Bobrov",Accepted,,M,TRO,50126120,,"Fl. URSS","14: 149","149","1949"
+tro-34600193,A,Nitrariaceae,,Peganum,,"nigellastrum",,"","Bunge",Accepted,,M,TRO,34600193,,"Mém. Acad. Imp. Sci. St.-Pétersbourg Divers Savans","2: 87","87","1835"
+kew-2518783,A,Nitrariaceae,,Tetradiclis,,"tenella",,"","(Ehrenb.) Litv.",Accepted,,M,WCSP (in review),646048,873381-1,"Trudy Bot. Muz. Imp. Akad. Nauk","3: 122","","1907"

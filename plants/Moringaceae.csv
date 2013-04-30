@@ -1,0 +1,5 @@
+ID,Major group,Family,Genus hybrid marker,Genus,Species hybrid marker,Species,Infraspecific rank,Infraspecific epithet,Authorship,Taxonomic status in TPL,Nomenclatural status from original data source,Confidence level,Source,Source id,IPNI id,Publication,Collation,Page,Date
+kew-2501705,A,Moringaceae,,Moringa,,"oleifera",,"","Lam.",Accepted,,M,WCSP (in review),629257,138522-3,"Encycl.","1: 398","","1785"
+kew-2501707,A,Moringaceae,,Moringa,,"ovalifolia",,"","Dinter & A.Berger",Accepted,,M,WCSP (in review),629259,584737-1,"Neue Pfl. Südw.-Afr.","45","","1914"
+tro-50213481,A,Moringaceae,,Moringa,,"peregrina",,"","(Forssk.) Fiori",Accepted,,M,TRO,50213481,584740-1,"Agric. Colon.","4: 59","59","1911"
+tro-21400013,A,Moringaceae,,Moringa,,"stenopetala",,"","(Baker f.) Cufod.",Accepted,,L,TRO,21400013,584747-1,"Senckenberg. Biol.","38: 407","407","1957"

@@ -1,0 +1,13 @@
+ID,Major group,Family,Genus hybrid marker,Genus,Species hybrid marker,Species,Infraspecific rank,Infraspecific epithet,Authorship,Taxonomic status in TPL,Nomenclatural status from original data source,Confidence level,Source,Source id,IPNI id,Publication,Collation,Page,Date
+kew-2494436,A,Limeaceae,,Limeum,,"argutecarinatum",,"","Wawra",Accepted,,M,WCSP (in review),622028,362393-1,"Sitzungsber. Kaiserl. Akad. Wiss., Math.-Naturwiss. Cl.","38: 563","","1860"
+kew-2870178,A,Limeaceae,,Limeum,,"argutecarinatum",var.,"kwebense","(N.E.Br.) Friedr.",Accepted,,L,WCSP (in review),988500,,"Mitt. Bot. Staatssamml. München","1: 149","","1956"
+kew-2494430,A,Limeaceae,,Limeum,,"fenestratum",,"","(Fenzl) Heimerl",Accepted,,M,WCSP (in review),622022,362396-1,"Nat. Pflanzenfam.","3(1b): 9","","1889"
+tro-700138,A,Limeaceae,,Limeum,,"fenestratum",var.,"fenestratum","",Accepted,,L,TRO,700138,,"","","",""
+kew-2494448,A,Limeaceae,,Limeum,,"myosotis",,"","H.Walter",Accepted,,M,WCSP (in review),622040,676270-1,"Repert. Spec. Nov. Regni Veg.","8: 56","","1910"
+tro-700148,A,Limeaceae,,Limeum,,"myosotis",var.,"confusum","Friedr.",Accepted,,L,TRO,700148,,"","","",""
+kew-2494626,A,Limeaceae,,Limeum,,"pauciflorum",,"","Moq.",Accepted,,M,WCSP (in review),622216,362406-1,"Prodr.","13(2): 23","","1849"
+kew-2494633,A,Limeaceae,,Limeum,,"pterocarpum",,"","(J.Gay) Heimerl",Accepted,,M,WCSP (in review),622224,362407-1,"Nat. Pflanzenfam.","3(1b): 9","","1889"
+tro-700158,A,Limeaceae,,Limeum,,"pterocarpum",var.,"pterocarpum","",Accepted,,L,TRO,700158,,"","","",""
+kew-2494605,A,Limeaceae,,Limeum,,"sulcatum",,"","(Klotzsch) Hutch.",Accepted,,M,WCSP (in review),622196,676283-1,"Man. Pl. Transvaal","1: 46","","1926"
+kew-2494608,A,Limeaceae,,Limeum,,"viscosum",,"","(J.Gay) Fenzl",Accepted,,M,WCSP (in review),622199,362409-1,"Nov. Stirp. Dec.","87","","1839"
+tro-700177,A,Limeaceae,,Limeum,,"viscosum",subsp.,"viscosum","Fenzl",Accepted,,L,TRO,700177,,"","","",""

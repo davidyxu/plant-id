@@ -1,0 +1,9 @@
+ID,Major group,Family,Genus hybrid marker,Genus,Species hybrid marker,Species,Infraspecific rank,Infraspecific epithet,Authorship,Taxonomic status in TPL,Nomenclatural status from original data source,Confidence level,Source,Source id,IPNI id,Publication,Collation,Page,Date
+kew-257739,A,Strelitziaceae,,Phenakospermum,,"guyannense",,"","(A.Rich.) Endl. ex Miq.",Accepted,,H,WCSP,257739,,"Bot. Zeitung (Berlin)","3: 345","","1845"
+kew-260806,A,Strelitziaceae,,Ravenala,,"madagascariensis",,"","Sonn.",Accepted,,H,WCSP,260806,,"Voy. Indes Orient.","2: 223","","1782"
+kew-267239,A,Strelitziaceae,,Strelitzia,,"alba",,"","(L.f.) Skeels",Accepted,,H,WCSP,267239,585015-1,"Bull. Bur. Pl. Industr. U.S.D.A.","248: 57","","1912"
+kew-267245,A,Strelitziaceae,,Strelitzia,,"caudata",,"","R.A.Dyer",Accepted,,H,WCSP,267245,585016-1,"Fl. Pl. Africa","25: t. 997","","1946"
+kew-267251,A,Strelitziaceae,,Strelitzia,,"juncea",,"","(Ker Gawl.) Link",Accepted,,H,WCSP,267251,798181-1,"Enum. Hort. Berol. Alt.","1: 150","","1821"
+kew-267253,A,Strelitziaceae,,Strelitzia,,"nicolai",,"","Regel & K.Koch",Accepted,,H,WCSP,267253,798185-1,"Gartenflora","7: 265","","1858"
+kew-267262,A,Strelitziaceae,,Strelitzia,,"reginae",,"","Banks ex Aiton",Accepted,,H,WCSP,267262,798194-1,"Hort. Kew.","1: 285","","1789"
+kew-371779,A,Strelitziaceae,,Strelitzia,,"reginae",subsp.,"reginae","",Accepted,,L,WCSP,371779,,"Unknown","","",""

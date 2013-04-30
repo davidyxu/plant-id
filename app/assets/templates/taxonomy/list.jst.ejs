@@ -1,0 +1,7 @@
+<ul>
+	<% collection.each(function(model) { %>
+	<li class="<%=type%>" id="<%=model.id%>">
+		<%= model.escape('name') %>
+	</li>	
+	<% }); %>
+</ul>

@@ -1,0 +1,2 @@
+module GenusHelper
+end

@@ -1,0 +1,28 @@
+<label for="major-group">Major Group:</label>
+
+<select id="major-group">
+	<option value="">
+		Select a major group
+	</option>
+	<% groupsCollection.each(function(group) { %>
+		<option value="<%=group.id%>">
+			<%= group.get("name") %>
+		</option>
+	<% }) %>
+</select>
+
+
+<label for="family">Family:</label>
+<input type="text" id="family" class="family-input"></input>	
+
+<div class="family-autocomplete"></div>
+
+<label for="genus">Genus:</label>
+<input type="text" id="genus" class="genus-input"></input>
+
+<div class="genus-autocomplete"></div>
+
+<label for="species">Species:</label>
+<input type="text" id="species" class="species-input"></input>
+
+<div class="species-autocomplete"></div>

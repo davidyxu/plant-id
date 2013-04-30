@@ -1,0 +1,140 @@
+Plant Search View
+	Family View
+
+	Search Router
+
+	Location View
+
+
+	Taxonomy View
+		Family View
+			append genus view IF family.val == a family
+		Genus View
+			append species view IF family.val == a genus
+		Species View
+
+
+
+
+DO NOT INCLUDE CREATED AND UPDATED SHIT FOR FAMILY, GENUS, SPECIES
+DB Tables
+*Family
+	Name, string
+
+*Genus
+	Name, string
+	Family ID, references
+
+*Species
+	Name string
+	Genus ID, references
+
+*Specimen
+	Title, string
+	Comments, text
+	Family ID, references
+	Genus ID, references
+	Species ID, references
+	Date of Sighting, date 
+	Lat, number
+	Long, number
+
+*Follow
+	specimen id, references
+	genus id, references
+
+*Specimen Photo
+	specimen_id, references
+	user_id, references
+	date of photo, date
+	photo comments, text
+	photo title, string
+
+*Specimen ID
+	User_ID
+	Specimen ID
+	Family ID
+	Genus ID
+	Species ID
+	Comment
+	Votes
+
+validates uniquness of species id
+
+User
+	username
+	email
+	password_digest
+
+*ID Comments
+	ID
+	Parent_ID (comment), references
+	Comment
+
+Search = Backbone.Model.extend({
+	submit to searchescontroller
+
+	index, looks at params and uses it to filter
+	show, returns a specific one
+
+})
+
+
+Views
+SearchView
+	FilterView
+		LocationView
+		DateView
+	TaxonomyFilterView
+		FamilyView
+		GenusView
+		SpeciesView
+
+SearchResultsView
+
+SpecimenDetailsView
+	SpecimenProfileView
+	SpecimenIDsView
+
+SpecimenIDView
+	VoteView
+	CommentsView
+	
+UploadSpecimenView
+	UploadLocationView
+		UploadMapView
+			or
+		geocode
+			or
+		image tag
+	UploadProfileView
+	UploadPhotoView
+
+MapSearchView
+	TaxonomyFilterView
+	DateRangeView
+		markers change based on criteria
+			markers have info windows <- link to detail view
+
+taxonomyview
+daterangeview
+
+mapview
+
+PlantRouter
+	Search View
+	Search Results View
+		takes json from  and makes it pretty
+
+	google maps
+	google geotag
+	google latittude
+
+http://gmap3.net/en/catalog/10-overlays/marker-41
+
+https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple
+
+
+
+SEARCH
+ADD ID

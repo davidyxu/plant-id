@@ -1,0 +1,10 @@
+ID,Major group,Family,Genus hybrid marker,Genus,Species hybrid marker,Species,Infraspecific rank,Infraspecific epithet,Authorship,Taxonomic status in TPL,Nomenclatural status from original data source,Confidence level,Source,Source id,IPNI id,Publication,Collation,Page,Date
+tro-25300017,A,Platanaceae,,Platanus,,"acerifolia",,"","(Aiton) Willd.",Accepted,,M,TRO,25300017,685841-1,"Sp. Pl.","4: 474","474","1797"
+tro-50249711,A,Platanaceae,,Platanus,,"gentryi",,"","Nixon & J.M. Poole",Accepted,,M,TRO,50249711,60429575-2,"Lundellia","6: 118-120, f. 6","118","2003"
+tro-25300011,A,Platanaceae,,Platanus,,"mexicana",,"","Moric.",Accepted,,M,TRO,25300011,685866-1,"Pl. Nouv. Amer.","39, t. 26","39","1837"
+tro-25300003,A,Platanaceae,,Platanus,,"occidentalis",,"","L.",Accepted,,M,TRO,25300003,685871-1,"Sp. Pl.","2: 999","999","1753"
+tro-50249743,A,Platanaceae,,Platanus,,"occidentalis",var.,"palmeri","(Kuntze) Nixon & J.M. Poole ex Geerinck",Accepted,,L,TRO,50249743,1004682-1,"Belg. J. Bot.","130(2): 127","127","1998"
+kew-2570462,A,Platanaceae,,Platanus,,"orientalis",,"","L.",Accepted,,M,WCSP (in review),695768,685873-1,"Sp. Pl.","999","","1753"
+tro-25300004,A,Platanaceae,,Platanus,,"racemosa",,"","Nutt.",Accepted,,M,TRO,25300004,201697-2,"N. Amer. Sylv.","1(1): 47, pl. 15","47","1842"
+tro-50078842,A,Platanaceae,,Platanus,,"racemosa",var.,"wrightii","(S. Watson) L.D. Benson",Accepted,,L,TRO,50078842,201699-2,"Amer. J. Bot.","30(3): 237","237","1943"
+tro-50148838,A,Platanaceae,,Platanus,,"rzedowskii",,"","Nixon & Poole",Accepted,,M,TRO,50148838,60429577-2,"Lundellia","6: 129-132, f. 8","129","2003"

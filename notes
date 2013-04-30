@@ -1,0 +1,52 @@
+$(div).width.height.gmap3
+	map: (address: where its centered)
+
+
+
+
+search by
+	show only accepted
+	show only above x votes
+dropdown menu
+	list
+	map
+
+
+
+"search"
+
+
+"results"
+
+upload location
+upload view
+"specimens/new"
+	details
+	image upload
+
+	map - geoloc
+				or drag and drop
+	address
+
+
+details view
+"specimens/#id"
+	identification details
+		comments
+
+THINGS TO BUILD
+	*landing page
+		css styling, bootstrap?
+			find a framework that plays well with gmap3
+	*authentication system
+		devise?
+	*upload specimen view
+		paperclip with js, how?
+	*specimen details view
+		*identification comments
+		kaminari
+	*search view
+
+	*results view
+		*listed
+		*map

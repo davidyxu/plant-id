@@ -1,0 +1,9 @@
+ID,Major group,Family,Genus hybrid marker,Genus,Species hybrid marker,Species,Infraspecific rank,Infraspecific epithet,Authorship,Taxonomic status in TPL,Nomenclatural status from original data source,Confidence level,Source,Source id,IPNI id,Publication,Collation,Page,Date
+kew-24045,A,Cabombaceae,,Brasenia,,"schreberi",,"","J.F.Gmel.",Accepted,,H,WCSP,24045,605270-1,"Syst. Nat.","853","","1791"
+kew-28279,A,Cabombaceae,,Cabomba,,"aquatica",,"","Aubl.",Accepted,,H,WCSP,28279,605272-1,"Hist. Pl. Guiane","1: 321","","1775"
+kew-28282,A,Cabombaceae,,Cabomba,,"caroliniana",,"","A.Gray",Accepted,,H,WCSP,28282,273581-2,"Ann. Lyceum Nat. Hist. New York","4: 47","","1837"
+kew-28283,A,Cabombaceae,,Cabomba,,"caroliniana",var.,"caroliniana","",Accepted,,L,WCSP,28283,,"Unknown","","",""
+kew-28286,A,Cabombaceae,,Cabomba,,"caroliniana",var.,"pulcherrima","R.M.Harper",Accepted,,L,WCSP,28286,273583-2,"Bull. Torrey Bot. Club","30: 328","","1903"
+kew-28287,A,Cabombaceae,,Cabomba,,"furcata",,"","Schult. & Schult.f.",Accepted,,H,WCSP,28287,273584-2,"Syst. Veg.","7: 1379","","1830"
+kew-28288,A,Cabombaceae,,Cabomba,,"haynesii",,"","Wiersema",Accepted,,H,WCSP,28288,273585-2,"Ann. Missouri Bot. Gard.","76: 1167","","1989"
+kew-28289,A,Cabombaceae,,Cabomba,,"paliformis",,"","Fassett",Accepted,,H,WCSP,28289,39039-2,"Castanea","18: 127","","1953"

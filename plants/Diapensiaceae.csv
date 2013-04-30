@@ -1,0 +1,11 @@
+ID,Major group,Family,Genus hybrid marker,Genus,Species hybrid marker,Species,Infraspecific rank,Infraspecific epithet,Authorship,Taxonomic status in TPL,Nomenclatural status from original data source,Confidence level,Source,Source id,IPNI id,Publication,Collation,Page,Date
+kew-2675048,A,Diapensiaceae,,Berneuxia,,"thibetica",,"","Decne.",Accepted,,M,WCSP (in review),798507,316108-1,"Bull. Soc. Bot. France","20: 159","","1873"
+kew-2765254,A,Diapensiaceae,,Diapensia,,"himalaica",,"","Hook.f. & Thomson",Accepted,,M,WCSP (in review),886613,316118-1,"Hooker's J. Bot. Kew Gard. Misc.","9: 373","","1857"
+kew-2765262,A,Diapensiaceae,,Diapensia,,"lapponica",,"","L.",Accepted,,M,WCSP (in review),886621,316120-1,"Sp. Pl.","141","","1753"
+kew-2765266,A,Diapensiaceae,,Diapensia,,"lapponica",subsp.,"obovata","(F.Schmidt) Hultén",Accepted,,L,WCSP (in review),886625,,"Acta Univ. Lund.","n.s., 44(1): 1265","","1948"
+kew-2765271,A,Diapensiaceae,,Diapensia,,"purpurea",,"","Diels",Accepted,,M,WCSP (in review),886630,316123-1,"Repert. Spec. Nov. Regni Veg.","10: 419","","1912"
+kew-2765274,A,Diapensiaceae,,Diapensia,,"wardii",,"","W.E.Evans",Accepted,,M,WCSP (in review),886633,316124-1,"Notes Roy. Bot. Gard. Edinburgh","15: 233","","1927"
+kew-2816164,A,Diapensiaceae,,Galax,,"urceolata",,"","(Poir.) Brummitt",Accepted,,M,WCSP (in review),935442,106783-2,"Taxon","21: 309","","1972"
+tro-10500013,A,Diapensiaceae,,Sherwoodia,,"galacifolia",,"","(Torr. & A. Gray) House",Accepted,,M,TRO,10500013,235389-2,"Torreya","7: 235","235","1907"
+tro-50279588,A,Diapensiaceae,,Shortia,,"rotundifolia",,"","(Maxim.) Makino",Accepted,,M,TRO,50279588,316152-1,"Bot. Mag. (Tokyo)","9: 327","327","1895"
+tro-50048909,A,Diapensiaceae,,Shortia,,"sinensis",,"","Hemsl.",Accepted,,M,TRO,50048909,316153-1,"Hooker's Icon. Pl.","27(1): , pl. 2624","","1899"

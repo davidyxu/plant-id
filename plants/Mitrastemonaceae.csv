@@ -1,0 +1,5 @@
+ID,Major group,Family,Genus hybrid marker,Genus,Species hybrid marker,Species,Infraspecific rank,Infraspecific epithet,Authorship,Taxonomic status in TPL,Nomenclatural status from original data source,Confidence level,Source,Source id,IPNI id,Publication,Collation,Page,Date
+tro-27000017,A,Mitrastemonaceae,,Mitrastemon,,"matudae",,"","Yamam.",Accepted,,M,TRO,27000017,162902-2,"Bot. Mag. (Tokyo)","50(598): 539, ill.","539","1936"
+tro-21000002,A,Mitrastemonaceae,,Mitrastemon,,"yamamotoi",,"","Makino",Accepted,,M,TRO,21000002,581721-1,"Bot. Mag. (Tokyo)","23: 326","326","1909"
+tro-21000006,A,Mitrastemonaceae,,Mitrastemon,,"yamamotoi",var.,"kanehirai","(Yamam.) Makino",Accepted,,L,TRO,21000006,,"J. Jap. Bot.","5(4): 18","18","1928"
+tro-21000004,A,Mitrastemonaceae,,Mitrastemon,,"yamamotoi",var.,"yamamotoi","",Accepted,,L,TRO,21000004,,"","","",""

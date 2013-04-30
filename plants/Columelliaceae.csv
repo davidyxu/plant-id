@@ -1,0 +1,12 @@
+ID,Major group,Family,Genus hybrid marker,Genus,Species hybrid marker,Species,Infraspecific rank,Infraspecific epithet,Authorship,Taxonomic status in TPL,Nomenclatural status from original data source,Confidence level,Source,Source id,IPNI id,Publication,Collation,Page,Date
+kew-46366,A,Columelliaceae,,Columellia,,"lucida",,"","Danguy & Cherm.",Accepted,,H,WCSP,46366,63491-2,"Bull. Mus. Natl. Hist. Nat.","28: 436","","1922"
+kew-46368,A,Columelliaceae,,Columellia,,"oblonga",,"","Ruiz & Pav.",Accepted,,H,WCSP,46368,169715-1,"Fl. Peruv.","1: 28","","1798"
+kew-46369,A,Columelliaceae,,Columellia,,"oblonga",subsp.,"oblonga","",Accepted,,L,WCSP,46369,,"Unknown","","",""
+kew-46370,A,Columelliaceae,,Columellia,,"oblonga",subsp.,"sericea","(Kunth) Brizicky",Accepted,,L,WCSP,46370,63493-2,"J. Arnold Arbor.","42: 368","","1961"
+kew-46371,A,Columelliaceae,,Columellia,,"oblonga",subsp.,"serrata","(Rusby) Brizicky",Accepted,,L,WCSP,46371,63494-2,"J. Arnold Arbor.","42: 367","","1961"
+kew-46372,A,Columelliaceae,,Columellia,,"obovata",,"","Ruiz & Pav.",Accepted,,H,WCSP,46372,169716-1,"Fl. Peruv.","1: 28","","1798"
+kew-46375,A,Columelliaceae,,Columellia,,"subsessilis",,"","Schltr.",Accepted,,H,WCSP,46375,63497-2,"Notizbl. Bot. Gart. Berlin-Dahlem","7: 356","","1920"
+kew-46376,A,Columelliaceae,,Columellia,,"weberbaueri",,"","Schltr.",Accepted,,H,WCSP,46376,63498-2,"Notizbl. Bot. Gart. Berlin-Dahlem","7: 358","","1920"
+kew-2761875,A,Columelliaceae,,Desfontainia,,"fulgens",,"","D.Don",Accepted,,M,WCSP (in review),883236,546053-1,"Trans. Linn. Soc. London","17: 505","","1837"
+kew-2761883,A,Columelliaceae,,Desfontainia,,"spinosa",,"","Ruiz & Pav.",Accepted,,M,WCSP (in review),883244,546059-1,"Fl. Peruv.","2: 47","","1799"
+kew-2761889,A,Columelliaceae,,Desfontainia,,"splendens",,"","Humb. & Bonpl.",Accepted,,M,WCSP (in review),883250,546060-1,"Pl. Aequinoct.","1: 157","","1807"
