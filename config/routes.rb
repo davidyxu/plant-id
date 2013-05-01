@@ -1,4 +1,7 @@
 PlantIdApp::Application.routes.draw do
+  devise_for :users
+
+  resources :photos
   resources :major_groups do
     resources :families, :only => [:index]
   end
@@ -6,10 +9,13 @@ PlantIdApp::Application.routes.draw do
     resources :genus, :only => [:index]
   end
   resources :specimens
-
+  resources :searches
   resources :genus do
     resources :species, :only => [:index]
   end
+
+  root :to => 'families#index' #temp
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

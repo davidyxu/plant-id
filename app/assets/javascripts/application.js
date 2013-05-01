@@ -16,7 +16,10 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //
+//= jquery.fineuploader-3.5.0
+//
 //= require gmap3.min
+//
 //= require underscore
 //= require backbone
 //= require backbone-relational

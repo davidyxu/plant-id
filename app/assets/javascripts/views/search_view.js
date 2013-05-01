@@ -2,7 +2,17 @@ PI.Views.SearchView = Backbone.View.extend({
 	events: {
 		'click a.toggle-view': 'toggle',
 		'click a.filter-option': 'filterOption',
-		'click div.listed-specimen': 'viewDetails'
+		'click div.listed-specimen': 'viewDetails',
+		'click button.dropdown-toggle': 'toggleView',
+		'blur ul.dropdown-menu': 'menuClose'
+	},
+
+	menuClose: function() {
+		$('.btn-group').removeClass('open');
+	},
+
+	toggleView: function() {
+		$('.btn-group').toggleClass('open');
 	},
 
 	filterOption: function() {
@@ -29,21 +39,18 @@ PI.Views.SearchView = Backbone.View.extend({
 		} else {
 			this.viewType = "list view"
 		}
-		this.render();
+		this.renderView();
 		$('a.toggle-view').text(this.viewType);
 	},
 
 	initialize: function() {
-		this.open = null;
 		this.viewType = "map view";
-		this.$menu = $("<div></div>");
-		this.$menu.addClass('filter-menu');
+		this.open = null;
 
-		this.$mapContainer = $("<div></div>")
-		this.$mapContainer.addClass('map-container');
+		PI.Store.specimensSearch.on("all", function() {this.render()}, this);
+		PI.Store.search.on("all", function() { PI.Store.specimensSearch.fetch()});
 
-		this.$el.append(this.$menu);
-		this.$el.append(this.$mapContainer);
+		this.renderedContent = JST["menus/filter"]();
 
 		this.dateFormView = JST["menus/date"]();
 		this.descriptionFormView = JST["menus/description"]();
@@ -51,17 +58,17 @@ PI.Views.SearchView = Backbone.View.extend({
 		this.taxonomySpecificity = JST["menus/specificity"]();
 	},
 
-	renderMenu: function() {
+	render: function() {
 		var that = this;
 
+		that.$el.html(that.renderedContent);
+		that.renderMenu();
+		that.renderView();
+		return that;
+	},
 
-		var filterOptions = JST["menus/filter"]();
-		var toggleViews = JST["menus/toggle"]();
-		that.$menu.html(toggleViews);
-		that.$menu.append("<p><u>Filter Options</u></p>");
-
-		//that.$menu.append(that.taxonomyFormView.render().el);
-		this.$menu.append(filterOptions);
+	renderMenu: function() {
+		var that = this;
 		$('.taxonomy-filter').html('');
 		$('.date-filter').html('');
 		$('.description-filter').html('');
@@ -79,29 +86,18 @@ PI.Views.SearchView = Backbone.View.extend({
 		}
 	},
 
-	render: function() {
+	renderView: function() {
 		var that = this;
-		if (!that.viewType) {
-			that.viewType = "map view";
-		}
-
-		that.renderMenu();
 		if (that.viewType === "map view") {
-			this.mapResultsView = new PI.Views.MapResultsView({
-				collection: this.collection
+			mapResultsView = new PI.Views.MapResultsView({
+				collection: PI.Store.specimensSearch
 			});
-			that.$mapContainer.html(that.mapResultsView.render().el);
+			$('.view-container').html(mapResultsView.render().el);
 		} else {
-			this.specimenListView = new PI.Views.SpecimenListView({
+			specimenListView = new PI.Views.SpecimenListView({
 				collection: this.collection
 			});
-			that.$mapContainer.html(that.specimenListView.render().el);
-
+			$('.view-container').html(specimenListView.render().el);
 		}
-		return that;
-	},
-
-	submit: function() {
-
 	}
 });

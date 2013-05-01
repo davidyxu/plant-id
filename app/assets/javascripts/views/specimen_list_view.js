@@ -8,10 +8,9 @@ PI.Views.SpecimenListView = Backbone.View.extend({
 	render: function() {
 		var that = this;
 		var renderedContent = JST["specimens/list"]({
-			collection: that.collection
+			collection: PI.Store.specimensSearch
 		})
 		that.$el.html(renderedContent);
-		console.log(this.collection);
 		return that;
 	}
 });

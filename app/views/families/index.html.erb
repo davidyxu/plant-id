@@ -1,43 +1,16 @@
-
-<div class="navbar">
-  <div class="navbar-inner">
-    <a class="brand" href="#">Plantae ID</a>
-    <ul class="nav">
-			<li><a href="#search">Search</a></li>
-			<li><a href="#specimens/new">Upload</a></li>
-			<li><a href="#specimens/favorites">Favorites</a></li>
-    </ul>
-  </div>
-</div>
-
-<div class='menu'>
-</div>
+<div class='menu'></div>
 <div class='main'></div>
 <div id="test"></div>
+
 <script type="text/javascript"
 src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en">
 </script>
+
 <script type="text/javascript">
 	var familiesData = <%= Family.all.to_json.html_safe %>
 	var groupsData = <%= MajorGroup.all.to_json.html_safe %>
 	$(function() {
 		PI.initialize($('.menu'), $('.main'), groupsData);
-		// $("#test").width("600px").height("350px").gmap3({
-	 //    map:{
-	 //      address:"POURRIERES, FRANCE",
-	 //      options:{
-	 //        zoom:4,
-	 //        mapTypeId: google.maps.MapTypeId.SATELLITE,
-	 //        mapTypeControl: true,
-	 //        mapTypeControlOptions: {
-	 //          style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-	 //        },
-	 //        navigationControl: true,
-	 //        scrollwheel: true,
-	 //        streetViewControl: true
-	 //      }
-	 //    }
-	 //  });
 
 	});
 </script>

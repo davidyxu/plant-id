@@ -1,7 +1,7 @@
 PI.Views.SpecimenMapView = Backbone.View.extend({
 	initialize: function() {
 		var that = this;
-		console.log("derp")
+		
 		this.$map = $("<div></div>").width("300px").height("300px")
 		this.$map.addClass("map");
 		this.$map.gmap3({

@@ -19,10 +19,15 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+gem 'devise'
+
+gem 'kaminari'
 
 gem 'jquery-rails'
 
 gem 'jquery-ui-rails'
+
+gem 'plupload-rails'
 
 gem 'ejs'
 # To use ActiveModel has_secure_password

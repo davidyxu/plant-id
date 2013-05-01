@@ -7,80 +7,63 @@ PI.Routers.FamiliesRouter = Backbone.Router.extend({
 
 	routes: {
 		"": "index",
-		"taxonomy": "taxonomyView",
-		"map": "map",
 		"specimens/favorites": "favorites",
 		'search': 'search',
 		"specimens/new": "specimenNew",
-		"search/results": 'searchResults',
 		"specimens/:specimen_id/identification": "specimenID",
 		"specimens/:specimen_id": "specimenDetails",
 	},
 
-	index: {
+	index: function() {
+		var that = this;
+		var indexView = new PI.Views.IndexView();
+
 		// var familyIndexView = new PI.Views.FamilyIndexView({
 		// 	collection: PI.Store.families
 		// });
 		
-		// this.$rootEl.html(familyIndexView.render().el);
-	},
-
-	taxonomyView: function() {
-		var that = this;
-		var taxonomyView = new PI.Views.TaxonomyView();
-		this.$rootEl.html(taxonomyView.render().$el);
-	},
-
-	map: function() {
-		var that = this;
-		var mapView = new PI.Views.MapView();
-		this.$rootEl.html(mapView.render().$el);
-
+		this.$rootEl.html(indexView.render().el);
 	},
 
 	specimenNew: function() {
 		var that = this;
 		var specimenNewView = new PI.Views.SpecimenNewView();
 		this.$rootEl.html(specimenNewView.render().$el);
+
+	 	$(function() {
+			PI.Store.manualUploader = new qq.FineUploader({
+	      element: $('#manual-fine-uploader')[0],
+	      request: {
+	        endpoint: "/photos"
+	      },
+	      autoUpload: false,
+	      text: {
+	        uploadButton: ' Upload Images '
+	      }
+	    });
+	  });
 	},
 
 	search: function() {
 		var that = this;
 
-		PI.Store.lastSearchResults.fetch({
+		PI.Store.specimensSearch.fetch({
 			success: function() {
-				var searchView = new PI.Views.SearchView({
-					collection: PI.Store.lastSearchResults
-				})
+				var searchView = new PI.Views.SearchView();
 				that.$rootEl.html(searchView.render().$el);
-			}
-		});
-	},
-
-	searchResults: function() {
-		var that = this;
-
-		PI.Store.lastSearchResults.fetch({
-			success: function() {
-				var searchResultsView = new PI.Views.SearchResultsView({
-					collection: PI.Store.lastSearchResults
-				})
-				that.$rootEl.html(searchResultsView.render().$el);
 			}
 		});
 	},
 
 	specimenID: function(specimen_id) {
 		var that = this;
-		var specimenIDView = new PI.Views.SpecimenIDView({
-
-		});
+		var specimenIDView = new PI.Views.SpecimenIDView();
 
 	},
 
 	specimenDetails: function(specimen_id) {
 		var that = this;
-		var specimen = PI.Store.lastSearchResults.get(specimen_id);
+		var specimen = PI.Store.specimensSearch.get(specimen_id);
 		console.log(specimen);
 		if (specimen) {
 			var specimenDetailView = new PI.Views.SpecimenDetailView({

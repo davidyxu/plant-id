@@ -8,8 +8,11 @@ window.PI = {
 	initialize: function($menu, $main, groupsData) {
 		//PI.Store.families = new PI.Collections.Families(familiesData);
 		PI.Store.majorGroups = new PI.Collections.MajorGroups(groupsData);
-		PI.Store.lastSearchResults = new PI.Collections.Specimens();
-		PI.Store.lastSearchResults.fetch();
+		PI.Store.search = new PI.Models.Search();
+		PI.Store.specimensSearch = new PI.Collections.SpecimensSearch(PI.Store.search);
+		PI.Store.specimensSearch.fetch();
+		//PI.Store.lastSearchResults = new PI.Collections.Specimens();
+		//PI.Store.lastSearchResults.fetch();
 		PI.Store.FamiliesRouter = new PI.Routers.FamiliesRouter($menu, $main);
 
 

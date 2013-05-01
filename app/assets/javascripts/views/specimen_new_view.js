@@ -12,17 +12,27 @@ PI.Views.SpecimenNewView = Backbone.View.extend({
 		this.$el.append(this.$menu);
 		this.$el.append(this.$mapContainer);
 
+		this.uploadedImages = [];
 		this.taxonomyFormView = new PI.Views.TaxonomyView();
 	},
 
 	events: {
-		'click a.submit-specimen': 'submit'
+		'click a.submit-specimen': 'submit',
+		'click a.upload': 'upload'
+	},
+
+	upload: function() {
+		this.uploadedImages.push($('input#images').val());
+		$('input#images').val("");
 	},
 
 	render: function() {
 		var that = this;
-		var renderedContent = JST["specimens/new"]();
+		var renderedContent = JST["specimens/new"]({});
 		that.$menu.html(renderedContent);
+
+
+
 		that.$menu.append("<p>Please enter following fields to the best of your knowledge:</p>")
 		that.$menu.append(that.taxonomyFormView.render().el);
 		that.uploadMapView = new PI.Views.UploadMapView();
@@ -32,19 +42,31 @@ PI.Views.SpecimenNewView = Backbone.View.extend({
 	},
 
 	submit: function() {
-		console.log("submitted");
-		var taxonomyValue = this.taxonomyFormView.getVal();
-		var newSpecimen = new PI.Models.Specimen({
-			title: this.$('.title').val(),
-			description: this.$('.description').val(),
-			lat: this.uploadMapView.getPosition().lat(),
-			lng: this.uploadMapView.getPosition().lng(),
-			family_id: taxonomyValue.family_id,
-			genus_id: taxonomyValue.genus_id,
-			species_id: taxonomyValue.species_id
-		});
+		//uploadStoredFiles();
+		var that = this;
 
-		newSpecimen.save();
+		console.log("submitted");
+		if (that.uploadMapView) {
+			var position = that.uploadMapView.getPosition();
+			var taxonomyValue = this.taxonomyFormView.getVal();
+			var newSpecimen = new PI.Models.Specimen({
+				title: this.$('.title').val(),
+				description: this.$('.description').val(),
+				lat: position.lat(),
+				lng: position.lng(),
+				family_id: taxonomyValue.family_id,
+				genus_id: taxonomyValue.genus_id,
+				species_id: taxonomyValue.species_id
+			});
+		}
+
+		newSpecimen.save({}, {success: function() {
+			PI.Store.manualUploader.setParams({
+				specimen_id: newSpecimen.id,
+				authenticity_token: $('meta[name="csrf-token"]').attr('content')
+			});
+			PI.Store.manualUploader.uploadStoredFiles();
+		}});
 		
 		console.log(newSpecimen);
 	}
