@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130502011816) do
+ActiveRecord::Schema.define(:version => 20130502053508) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "content"
+    t.integer  "identification_id"
+    t.integer  "parent_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "comments", ["identification_id"], :name => "index_comments_on_identification_id"
+  add_index "comments", ["parent_id"], :name => "index_comments_on_parent_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "families", :force => true do |t|
     t.text    "name"
@@ -40,17 +53,17 @@ ActiveRecord::Schema.define(:version => 20130502011816) do
   create_table "identifications", :force => true do |t|
     t.integer  "user_id"
     t.integer  "specimen_id"
+    t.text     "content"
     t.integer  "family_id"
-    t.string   "genus"
-    t.string   "references"
+    t.integer  "genus_id"
     t.integer  "species_id"
-    t.string   "comment"
     t.integer  "votes"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
   add_index "identifications", ["family_id"], :name => "index_identifications_on_family_id"
+  add_index "identifications", ["genus_id"], :name => "index_identifications_on_genus_id"
   add_index "identifications", ["species_id"], :name => "index_identifications_on_species_id"
   add_index "identifications", ["specimen_id"], :name => "index_identifications_on_specimen_id"
   add_index "identifications", ["user_id"], :name => "index_identifications_on_user_id"

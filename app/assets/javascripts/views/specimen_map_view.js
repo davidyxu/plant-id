@@ -1,4 +1,9 @@
 PI.Views.SpecimenMapView = Backbone.View.extend({
+	events: {
+
+
+	},
+
 	initialize: function() {
 		var that = this;
 		
@@ -7,7 +12,7 @@ PI.Views.SpecimenMapView = Backbone.View.extend({
 
 	render: function() {
 		var that = this;
-		
+
 		this.$map = $("<div></div>").width("300px").height("300px")
 		that.$el.html(this.$map);
 		this.$map.addClass("map");
@@ -22,5 +27,9 @@ PI.Views.SpecimenMapView = Backbone.View.extend({
 			}
 		});
 		return that;
-	}
+	},
+
+	//favorite or unfavorite
+	//comment
+	//
 });

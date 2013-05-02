@@ -7,11 +7,31 @@ PI.Routers.FamiliesRouter = Backbone.Router.extend({
 
 	routes: {
 		"": "index",
-		"specimens/favorites": "favorites",
+		"browse/favorites": "browseFavorites",
+		"browse/:page_id": "browse",
 		'search': 'search',
 		"specimens/new": "specimenNew",
 		"specimens/:specimen_id/identification": "specimenID",
 		"specimens/:specimen_id": "specimenDetails",
+	},
+
+	browse: function(page_id) {
+		var that = this;
+		var specimensPage = new PI.Collections.SpecimensPage(page_id);
+		var browseView = new PI.Views.SpecimenListView({
+			collection: specimensPage
+		});
+		that.switchView(browseView);
+	},
+
+	browseFavorites: function() {
+		var that = this;
+		var specimensPage = new PI.Collections.SpecimensPage();
+
+		var browseView = new PI.Views.SpecimenListView({
+			collection: PI.Store.favorites
+		});
+		that.switchView(browseView);
 	},
 
 	index: function() {

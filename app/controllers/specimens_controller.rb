@@ -1,6 +1,9 @@
 class SpecimensController < ApplicationController
+	include SpecimensHelper
 	def index
 		specimen = Specimen
+		specimen = specimen.order("created_at ASC")
+		specimen = specimen.page(params[:page]) if params[:page]
 		render :json => specimen.all
 	end
 

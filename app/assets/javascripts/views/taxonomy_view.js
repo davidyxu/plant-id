@@ -29,6 +29,18 @@ PI.Views.TaxonomyView = Backbone.View.extend({
 	},
 
 	render: function() {
+		this.$( "#family-autocomplete" ).autocomplete({
+	  	source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
+		});
+
+		this.$( "#family-autocomplete" ).autocomplete({
+	  	source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
+		});
+		
+		this.$( "#family-autocomplete" ).autocomplete({
+	  	source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
+		});
+
 		this.$(".family-autocomplete").html("");
 		this.$(".genus-autocomplete").html("");
 		this.$(".species-autocomplete").html("");

@@ -89,7 +89,9 @@ PI.Views.SearchView = Backbone.View.extend({
 			console.log("awatata");
 			that.$('.map-container').html(that.mapResultsView.render().el);
 		} else {
-			specimenListView = new PI.Views.SpecimenListView();
+			specimenListView = new PI.Views.SpecimenListView({
+				collection: PI.Store.specimensSearch
+			});
 			that.$('.map-container').html(specimenListView.render().el);
 		}
 		console.log($('.map-container').html())

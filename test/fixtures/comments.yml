@@ -2,18 +2,12 @@
 
 one:
   user: 
-  specimen: 
   content: MyText
-  family: 
-  genus: 
-  species: 
-  votes: 1
+  identification: 
+  parent_id: 1
 
 two:
   user: 
-  specimen: 
   content: MyText
-  family: 
-  genus: 
-  species: 
-  votes: 1
+  identification: 
+  parent_id: 1

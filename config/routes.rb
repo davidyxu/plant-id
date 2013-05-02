@@ -1,5 +1,6 @@
 PlantIdApp::Application.routes.draw do
   devise_for :users
+  resources :favorites
   resource :plant_app, :only => [:index]
   resources :photos
   resources :major_groups do

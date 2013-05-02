@@ -1,5 +1,10 @@
 <h2>Resend confirmation instructions</h2>
 
+	<div class="devise-alerts">
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+	</div>
+
 <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 

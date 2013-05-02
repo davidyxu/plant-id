@@ -8,4 +8,5 @@ class Specimen < ActiveRecord::Base
 
   has_many :identifications
   has_many :photos
+  has_many :favorites
 end

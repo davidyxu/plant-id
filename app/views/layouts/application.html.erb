@@ -12,9 +12,10 @@
 	    <a class="brand" href="#">Plantae ID</a>
 	    <% if user_signed_in? %>
 		    <ul class="nav">
+		    	<li><a href="#browse/1">Browse</a></li>
 					<li><a href="#search">Search</a></li>
 					<li><a href="#specimens/new">Upload</a></li>
-					<li><a href="#specimens/favorites">Favorites</a></li>
+					<li><a href="#browse/favorites">Favorites</a></li>
 				</ul>
 			<% end %>
 			<ul class="nav pull-right">
@@ -33,11 +34,6 @@
 	</div>
 
 	<%= yield %>
-
-	<div class="devise-alerts">
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
-	</div>
 
 </body>
 </html>
