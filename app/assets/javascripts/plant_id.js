@@ -6,6 +6,7 @@ window.PI = {
 	Store: {},
 
 	initialize: function($menu, $main, groupsData) {
+		$('.devise-alerts').fadeOut(2500, function() { $(this).remove(); });
 		//PI.Store.families = new PI.Collections.Families(familiesData);
 		PI.Store.majorGroups = new PI.Collections.MajorGroups(groupsData);
 		PI.Store.search = new PI.Models.Search();
@@ -19,3 +20,12 @@ window.PI = {
 		Backbone.history.start();
 	}
 };
+
+Backbone.View.prototype.close = function(){
+  this.remove();
+  this.unbind();
+  console.log("yes");
+  if (this.onClose){
+   this.onClose();
+  }
+}

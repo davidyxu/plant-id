@@ -1,11 +1,21 @@
 <% counter = 0 %>
 <% collection.each(function(specimen) { %>
 	<div class="listed-specimen <%= counter % 2 ? "unshaded" : "shaded" %>" id="<%= specimen.id %>">
+	<div>
+		<div class="specimen-head">
+			<div class="pull-left">
+				<h4><b><%=specimen.escape('title')%></b></h4>
+			</div>
+			<div class="pull-right">
+				<%= specimen.escape('created_at') %>
+			</div>
+		</div>
+	</div>
+	<div class="show">
 		<p>
-			<b><%=specimen.escape('title')%></b>
-			<br>
 			<%=specimen.escape('description') %>
 		</p>
-		<% counter += 1 %>
 	</div>
+	<% counter += 1 %>
+</div>
 <% }); %>

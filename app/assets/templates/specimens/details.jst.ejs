@@ -1,6 +1,10 @@
 <h1><%= specimen.escape('title') %></h1>
 <p>
 	<%= specimen.escape('description') %>
-
+	<% specimen.get('photos').each(function(photo) { %>
+	<a href="<%=photo.escape('file_path')%>" rel="lightbox[photos]">
+		<img src="<%=photo.escape('file_path')%>">
+	</a>
+	<% }); %>
 </p>
 <a class="back btn btn-large btn-block btn-inverse">Back</a>

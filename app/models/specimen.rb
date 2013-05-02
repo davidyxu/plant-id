@@ -7,4 +7,5 @@ class Specimen < ActiveRecord::Base
   attr_accessible :date, :description, :lat, :lng, :title, :user_id, :family_id, :species_id, :genus_id
 
   has_many :identifications
+  has_many :photos
 end

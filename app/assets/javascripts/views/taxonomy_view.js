@@ -22,6 +22,10 @@ PI.Views.TaxonomyView = Backbone.View.extend({
 		});
 		this.$el.html(this.renderedForm);
 
+				$('input#family').on("keypress", function() {
+			console.log("shii");
+		})
+
 	},
 
 	render: function() {

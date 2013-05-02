@@ -7,7 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="wrap">
 	<div class="navbar">
 	  <div class="navbar-inner">
 	    <a class="brand" href="#">Plantae ID</a>
@@ -35,17 +34,10 @@
 
 	<%= yield %>
 
-<div class="devise-alerts">
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
-</div>
-
-	<div id="push"></div>
-</div>
-
-<div id="footer">
-
-</div>
+	<div class="devise-alerts">
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+	</div>
 
 </body>
 </html>

@@ -13,6 +13,10 @@ PI.Views.SpecimenDetailView = Backbone.View.extend({
 
 	render: function() {
 		var that = this;
+		PI.Store.test = that.model
+		console.log("lol")
+		console.log(that.model)
+		console.log(that.photos)
 		var renderedContent = JST["specimens/details"]({
 			specimen: that.model
 		});

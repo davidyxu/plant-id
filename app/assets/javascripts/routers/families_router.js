@@ -22,14 +22,16 @@ PI.Routers.FamiliesRouter = Backbone.Router.extend({
 		// 	collection: PI.Store.families
 		// });
 		
-		this.$rootEl.html(indexView.render().el);
+		that.switchView(indexView);
+		//this.$rootEl.html(indexView.render().el);
 	},
 
 	specimenNew: function() {
 		var that = this;
 		var specimenNewView = new PI.Views.SpecimenNewView();
-		this.$rootEl.html(specimenNewView.render().$el);
+		//this.$rootEl.html(specimenNewView.render().$el);
 
+		that.switchView(specimenNewView);
 	 	$(function() {
 			PI.Store.manualUploader = new qq.FineUploader({
 	      element: $('#manual-fine-uploader')[0],
@@ -50,7 +52,9 @@ PI.Routers.FamiliesRouter = Backbone.Router.extend({
 		PI.Store.specimensSearch.fetch({
 			success: function() {
 				var searchView = new PI.Views.SearchView();
-				that.$rootEl.html(searchView.render().$el);
+
+				that.switchView(searchView);
+				//that.$rootEl.html(searchView.render().$el);
 			}
 		});
 	},
@@ -64,23 +68,44 @@ PI.Routers.FamiliesRouter = Backbone.Router.extend({
 	specimenDetails: function(specimen_id) {
 		var that = this;
 		var specimen = PI.Store.specimensSearch.get(specimen_id);
-		console.log(specimen);
+		var specimenPhotos = new PI.Collections.SpecimenPhotos(specimen_id);
+
 		if (specimen) {
-			var specimenDetailView = new PI.Views.SpecimenDetailView({
-				model: specimen
-			});
-			that.$rootEl.html(specimenDetailView.render().$el);
+			specimenPhotos.fetch({success: function() {
+				specimen.set({photos: specimenPhotos})
+				var specimenDetailView = new PI.Views.SpecimenDetailView({
+					model: specimen
+				});
+				that.switchView(specimenDetailView);
+				//that.$rootEl.html(specimenDetailView.render().$el);
+			}});
 		} else {
 			specimen = new PI.Models.Specimen();
 			specimen.set({id: specimen_id})
 			specimen.fetch({
 				success: function() {
-					var specimenDetailView = new PI.Views.SpecimenDetailView({
-						model: specimen
-					});
-					that.$rootEl.html(specimenDetailView.render().$el);					
+					specimenPhotos.fetch({success: function() {
+					specimen.set({photos: specimenPhotos})
+					//console.log(specimen)
+						var specimenDetailView = new PI.Views.SpecimenDetailView({
+							model: specimen
+						});
+						that.switchView(specimenDetailView);
+						//that.$rootEl.html(specimenDetailView.render().$el);					
+					}});
 				}
 			})
 		}
+	},
+
+	switchView: function(newView) {
+		if (PI.Store.currentView) {
+			console.log("closed")
+			PI.Store.currentView.close();
+		}
+		console.log("currentView")
+		console.log(PI.Store.currentView);
+		PI.Store.currentView = newView;
+		this.$rootEl.html(newView.render().$el);
 	}
 });

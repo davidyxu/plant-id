@@ -16,7 +16,9 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //
-//= jquery.fineuploader-3.5.0
+//= require lightbox
+//
+//= require jquery.fineuploader-3.5.0
 //
 //= require gmap3.min
 //
