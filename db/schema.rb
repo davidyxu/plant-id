@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501144742) do
+ActiveRecord::Schema.define(:version => 20130502011816) do
 
   create_table "families", :force => true do |t|
     t.text    "name"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(:version => 20130501144742) do
   end
 
   add_index "families", ["major_group_id"], :name => "index_families_on_major_group_id"
+
+  create_table "favorites", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "specimen_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "favorites", ["specimen_id"], :name => "index_favorites_on_specimen_id"
+  add_index "favorites", ["user_id"], :name => "index_favorites_on_user_id"
 
   create_table "genus", :force => true do |t|
     t.string  "name"
