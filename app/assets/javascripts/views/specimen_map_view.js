@@ -6,8 +6,9 @@ PI.Views.SpecimenMapView = Backbone.View.extend({
 
 	initialize: function() {
 		var that = this;
-		
-
+				window.onresize = function(event) {
+  		google.maps.event.trigger(gMap, 'resize');   
+		}
 	},
 
 	render: function() {

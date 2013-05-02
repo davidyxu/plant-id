@@ -1,3 +1,3 @@
-PI.Collections.FavoriteSpecimens = Backbone.Collections.extend({
+PI.Collections.FavoriteSpecimens = Backbone.Collection.extend({
 
 })

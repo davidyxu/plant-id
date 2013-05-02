@@ -68,6 +68,8 @@
     margin-right: 12px;
 }
 .qq-upload-file {
+    display: block;
+    overflow: hidden;
 }
 .qq-upload-spinner {
     display: inline-block;

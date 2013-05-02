@@ -27,6 +27,7 @@
 //= require backbone-relational
 //
 //= require plant_id
+//= require plant_map
 //
 //= require_tree ./models
 //= require_tree ./collections

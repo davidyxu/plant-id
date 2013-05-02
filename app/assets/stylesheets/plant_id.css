@@ -1,9 +1,26 @@
-.map-container {
-	float: left;
-	margin-left: 40px;
-	margin-top: 20px;
-	width: 75%;
+.viewer {
+	margin-right: 20px;
 }
+
+.browser {
+	margin: 20px;
+}
+
+.map-hider {
+ overflow: hidden;
+ width: 500px;
+ position: relative;
+}
+
+.map-container {
+	position:absolute;
+	margin-left: 20px;
+	left: 10000px;
+	width: 500px;
+	height: 300px;
+}
+
+.ui-autocomplete { height: 200px; overflow-y: scroll; overflow-x: hidden;}
 
 .filter-option {
 	margin-bottom: 5px;
@@ -11,7 +28,6 @@
 
 .filter-menu {
 	margin-left: 20px;
-	margin-top: 20px;
 	float: left;
 
   display:table-cell;
@@ -21,6 +37,13 @@
 .map-address {
 	margin-top: 10px;
 	float: right;
+}
+input.error {
+	border-color: red;
+}
+
+.error {
+	border-color: red;
 }
 
 .search-error {
@@ -71,7 +94,7 @@
   margin-right: auto;
 }
 .view-container{
-	margin-left: 20px;
+	padding-left: 20px;
 	margin-top: 20px;
 	overflow: hidden;
 	width: auto;

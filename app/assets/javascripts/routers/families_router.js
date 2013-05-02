@@ -1,6 +1,5 @@
 PI.Routers.FamiliesRouter = Backbone.Router.extend({
-	initialize: function($menu, $el) {
-		this.$menu = $menu;
+	initialize: function($el) {
 		this.$rootEl = $el;
 
 	},
@@ -126,6 +125,7 @@ PI.Routers.FamiliesRouter = Backbone.Router.extend({
 		console.log("currentView")
 		console.log(PI.Store.currentView);
 		PI.Store.currentView = newView;
+		PI.Store.map.hide();
 		this.$rootEl.html(newView.render().$el);
 	}
 });

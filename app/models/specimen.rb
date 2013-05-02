@@ -9,4 +9,6 @@ class Specimen < ActiveRecord::Base
   has_many :identifications
   has_many :photos
   has_many :favorites
+
+  validates :lat, :lng, :description, :date, :title, :user_id, :presence => true
 end

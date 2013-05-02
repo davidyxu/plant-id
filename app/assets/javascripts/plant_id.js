@@ -5,18 +5,14 @@ window.PI = {
 	Routers: {},
 	Store: {},
 
-	initialize: function($menu, $main, groupsData, favoritesData) {
+	initialize: function($main, groupsData, favoritesData) {
 		PI.Store.favorites = new PI.Collections.Favorites(favoritesData);
-		//PI.Store.families = new PI.Collections.Families(familiesData);
 		PI.Store.majorGroups = new PI.Collections.MajorGroups(groupsData);
 		PI.Store.search = new PI.Models.Search();
 		PI.Store.specimensSearch = new PI.Collections.SpecimensSearch(PI.Store.search);
-		PI.Store.specimensSearch.fetch();
-		//PI.Store.lastSearchResults = new PI.Collections.Specimens();
-		//PI.Store.lastSearchResults.fetch();
-		PI.Store.FamiliesRouter = new PI.Routers.FamiliesRouter($menu, $main);
 
-
+		PI.Store.FamiliesRouter = new PI.Routers.FamiliesRouter($main);
+		
 		Backbone.history.start();
 	}
 };

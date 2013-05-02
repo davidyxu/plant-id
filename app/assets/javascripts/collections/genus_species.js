@@ -5,5 +5,11 @@ PI.Collections.GenusSpecies = Backbone.Collection.extend({
 	model: PI.Models.Species,
 	url: function() {
 		return "/genus/" + this.genus_id + "/species"
+	},
+
+	toAutocomplete: function() {
+		return this.map(function(species) {
+			return species.escape('name');
+		});	
 	}
 });

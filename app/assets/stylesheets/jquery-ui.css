@@ -114,7 +114,7 @@
 	border-top: 0;
 	overflow: auto;
 }
-.ui-autocomplete {
+.ui-` {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -799,7 +799,8 @@ body .ui-tooltip {
 }
 .ui-widget-content {
 	border: 1px solid #aaaaaa;
-	background: #ffffff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+	width: 198px;
+	background: #ffffff 50% 50% repeat-x;
 	color: #222222;
 }
 .ui-widget-content a {
@@ -838,7 +839,8 @@ body .ui-tooltip {
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
 	border: 1px solid #999999;
-	background: #dadada url(images/ui-bg_glass_75_dadada_1x400.png) 50% 50% repeat-x;
+	background: #dadada;
+	width: 198px;
 	font-weight: normal;
 	color: #212121;
 }

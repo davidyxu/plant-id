@@ -9,6 +9,7 @@ class SpecimensController < ApplicationController
 
 	def create
 		specimen = Specimen.new(params[:specimen])
+		specimen.user_id = current_user.id
 		if specimen.save
 			render :json => specimen
 		else

@@ -1,185 +1,122 @@
 PI.Views.TaxonomyView = Backbone.View.extend({
 	events: {
-		'click input#family': 'familyAuto',
-		'click input#genus': 'genusAuto',
-		'click input#species': 'speciesAuto',
-
-		'click li': 'select',
-		"keyup input": "render",
+		'change select#major-group': 'getFamily',
 	},
 
 	initialize: function() {
-		this.selected = null;
 		this.familiesList = new PI.Collections.GroupFamilies(0);
 		this.genusList = new PI.Collections.FamilyGenus(0);
 		this.speciesList = new PI.Collections.GenusSpecies(0);
-		
+
 		this.renderedForm = JST["taxonomy/form"]({
 			groupsCollection: PI.Store.majorGroups,
-			familiesCollection: this.filterList("family", this.familiesList),
-			genusCollection: this.filterList("genus", this.genusList),
-			speciesList: this.filterList("species", this.speciesList)
 		});
+
 		this.$el.html(this.renderedForm);
-
-				$('input#family').on("keypress", function() {
-			console.log("shii");
-		})
-
 	},
 
 	render: function() {
-		this.$( "#family-autocomplete" ).autocomplete({
-	  	source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
-		});
+		var that = this;
+		this.renderFamily();
+		this.renderGenus();
+		this.renderSpecies();
 
-		this.$( "#family-autocomplete" ).autocomplete({
-	  	source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
-		});
-		
-		this.$( "#family-autocomplete" ).autocomplete({
-	  	source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
-		});
-
-		this.$(".family-autocomplete").html("");
-		this.$(".genus-autocomplete").html("");
-		this.$(".species-autocomplete").html("");
-		switch (this.selected) {
-			case null:
-				break;
-			case "family":
-
-				this.renderedAutocomplete = JST["taxonomy/autocomplete"]({
-					collection: this.filterList("family", this.familiesList)
-				});
-				this.$(".family-autocomplete").html(this.renderedAutocomplete)
-
-				break;
-			case "genus":
-
-				this.renderedAutocomplete = JST["taxonomy/autocomplete"]({
-					collection: this.filterList("genus", this.genusList)
-				});
-				this.$(".genus-autocomplete").html(this.renderedAutocomplete)
-
-				break;
-			case "species":
-
-				this.renderedAutocomplete = JST["taxonomy/autocomplete"]({
-					collection: this.filterList("species", this.speciesList)
-				});
-				this.$(".species-autocomplete").html(this.renderedAutocomplete)
-
-				break;
-		}
 		return this;
 	},
 
-	filterList: function(type, list) {
-		switch (type) {
-			case "family":
-					var value = $('input#family').val();
-				break;
-			case "genus":
-					var value = $('input#genus').val();
-				break;
-			case "species":
-					var value = $('input#species').val();
-				break;
-		}
-
-		if (value) {
-			query = "^" + value;
-			var filteredRegExp = new RegExp(query, "i");
-			var filtered = list.filter(function(value) {
-				return filteredRegExp.test(value.get("name"));
-			});
-
-			switch (type) {
-				case "family":
-						return new PI.Collections.GroupFamilies(filtered);
-					break;
-				case "genus":
-						return new PI.Collections.FamilyGenus(filtered);
-					break;
-				case "species":
-						return new PI.Collections.GenusSpecies(filtered);
-					break;
-			}
-		} else {
-			return list;
-		}
-	},
-
-	familyAuto: function() {
+	renderFamily: function() {
 		var that = this;
 
-		that.selected = "family";
+		that.$( "#family-autocomplete" ).autocomplete({
+	  	source: that.familiesList.toAutocomplete(),
+	  	minLength: 3,
+	  	change: function (event, ui) {
+				var family = that.familiesList.findWhere({name: $(this).val()});
+				if (family) {
+					that.genusList = new PI.Collections.FamilyGenus(family.id);
+					if (that.model) {
+						that.model.set(that.getVal());
+					}
+					that.genusList.fetch({
+						success: function() {
+							that.renderGenus();
+						}
+					});
+				}
+	    }
+		});
+	},
+
+	renderGenus: function() {
+		var that = this;
+		this.$( "#genus-autocomplete" ).autocomplete({
+	  	source: that.genusList.toAutocomplete(),
+	  	change: function (event, ui) {
+				var genus = that.genusList.findWhere({name: $(this).val()});
+				if (genus) {
+					that.speciesList = new PI.Collections.GenusSpecies(genus.id);
+
+					if (that.model) {
+						that.model.set(that.getVal());
+					}
+					
+					that.speciesList.fetch({
+						success: function() {
+							that.renderSpecies();
+
+						}
+					});
+				}
+	    }
+		});
+	},
+
+	renderSpecies: function() {
+		var that = this;
+		console.log(that.speciesList.toAutocomplete());
+		this.$( "#species-autocomplete" ).autocomplete({
+	  	source: that.speciesList.toAutocomplete(),
+	  	change: function (event, ui) {
+	  		var species = that.speciesList.findWhere({name: $(this).val()});
+				if (that.model) {
+					that.model.set(that.getVal());
+				}
+	  	}
+		});
+	},
+
+	getFamily: function() {
+		var that = this;
 		var groupID = $('select#major-group').val();
 		if (groupID && groupID != that.familiesList.major_group_id) {
 			that.familiesList = new PI.Collections.GroupFamilies(groupID);
 			that.familiesList.fetch({
 				success: function() {
-					that.render();
+					that.renderFamily();
 				}
 			});
 		}
-	},
-
-	genusAuto: function() {
-		var that = this;
-
-		that.selected = "genus";
-		var familyName = $('input#family').val();
-		var family = this.familiesList.findWhere({name: familyName});
-		if (family && family.id != that.genusList.family_id) {
-			that.genusList = new PI.Collections.FamilyGenus(family.id);
-			that.genusList.fetch({
-				success: function() {
-					that.render();
-				}
-			});
-		}
-	},
-
-
-	speciesAuto: function() {
-		var that = this;
-
-		that.selected = "species";
-		var genusName = $('input#genus').val();
-		var genus = this.genusList.findWhere({name: genusName});
-		if (genus && genus.id != that.genusList.genus_id) {
-			that.speciesList = new PI.Collections.GenusSpecies(genus.id);
-			that.speciesList.fetch({
-				success: function() {
-					console.log(that.speciesList);
-					that.render();
-				}
-			});
-		}
-	},
-
-
-	select: function () {
-		$('input#' + this.selected).val($.trim($(event.target).text()));
-		this.selected=null;
-		this.render();
 	},
 
 	getVal: function() {
 		var taxonomyValues = {}
-		var selectedFamily = this.familiesList.findWhere({name: $('input#family').val()})
+		var selectedFamily = this.familiesList.findWhere({name: $('input#family-autocomplete').val()})
 		if (selectedFamily) {
 			taxonomyValues.family_id = selectedFamily.id
+		} else {
+			taxonomyValues.family = $('input#family-autocomplete').val()
 		}
-		var selectedGenus = this.genusList.findWhere({name: $('input#genus').val()})
+		var selectedGenus = this.genusList.findWhere({name: $('input#genus-autocomplete').val()})
 		if (selectedGenus) {
 			taxonomyValues.genus_id = selectedGenus.id
+		} else {
+			taxonomyValues.genus = $('input#genus-autocomplete').val()
 		}
-		var selectedSpecies = this.speciesList.findWhere({name: $('input#species').val()})
+		var selectedSpecies = this.speciesList.findWhere({name: $('input#species-autocomplete').val()})
 		if (selectedSpecies) {
 			taxonomyValues.species_id = selectedSpecies.id
+		} else {
+			taxonomyValues.species = $('input#species-autocomplete').val()
 		}
 		return taxonomyValues;
 	}

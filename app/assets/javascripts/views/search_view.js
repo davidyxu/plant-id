@@ -2,7 +2,12 @@ PI.Views.SearchView = Backbone.View.extend({
 	events: {
 		'click a.filter-option': 'filterOption',
 		'click div.listed-specimen': 'viewDetails',
-		'click a.view-type': 'selectView'
+		'click a.view-type': 'selectView',
+		'change input[type=date]': 'date'
+	},
+
+	date: function() {
+		PI.Store.search.set(event.target.id, $(event.target).val())
 	},
 
 	selectView: function() {
@@ -42,13 +47,16 @@ PI.Views.SearchView = Backbone.View.extend({
 		this.listenTo(PI.Store.search, 'change', function() {
 			PI.Store.specimensSearch.fetch({
 				success: function() {
-					that.mapResultsView.loadMarkers();
+					//that.mapResultsView.loadMarkers();
+					that.renderView();
 				}
 			});
 		});
 
 		this.descriptionFormView = JST["menus/description"]();
-		this.taxonomyFormView = new PI.Views.TaxonomyView();
+		this.taxonomyFormView = new PI.Views.TaxonomyView({
+			model: PI.Store.search
+		});
 		this.taxonomySpecificity = JST["menus/specificity"]();
 
 	},
@@ -86,14 +94,12 @@ PI.Views.SearchView = Backbone.View.extend({
 	renderView: function() {
 		var that = this;
 		if (that.viewType === "map-view") {
-			console.log("awatata");
-			that.$('.map-container').html(that.mapResultsView.render().el);
+			that.$('.viewer').html(that.mapResultsView.render().el);
 		} else {
 			specimenListView = new PI.Views.SpecimenListView({
 				collection: PI.Store.specimensSearch
 			});
-			that.$('.map-container').html(specimenListView.render().el);
+			that.$('.viewer').html(specimenListView.render().el);
 		}
-		console.log($('.map-container').html())
 	}
 });

@@ -1,6 +1,7 @@
 PI.Views.MapResultsView = Backbone.View.extend({
 	initialize: function() {
-
+		var that = this;
+		that.$map = $('.map-container');
 	},
 
 	loadMarkers: function() {
@@ -42,37 +43,9 @@ PI.Views.MapResultsView = Backbone.View.extend({
 		})
 	},
 
-
 	render: function() {
-		var that = this;
-		this.$map = $("<div></div>").width("600px").height("350px")
-		this.$map.addClass("map");
-		this.$map.gmap3({
-			getgeoloc:{
-		    callback : function(latLng){
-		      if (latLng){
-		        $(this).gmap3({
-					    map:{
-				        options: {
-						    	center: latLng,
-				          zoom: 10
-				        }
-				      }
-		        });
-		      } else {
-		      	$(this).gmap3({
-					    map:{
-				        options: {
-				          zoom: 10
-				        }
-				      }
-						});
-		      } 
-		    }
-		  }
-		});
-		that.loadMarkers();
-		that.$el.html(this.$map);
-		return that;
-	}	
-})
+		PI.Store.map.show();
+		this.loadMarkers();
+		return this;
+	}
+});

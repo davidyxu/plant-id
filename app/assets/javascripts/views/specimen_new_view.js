@@ -59,14 +59,14 @@
 
 PI.Views.SpecimenNewView = Backbone.View.extend({
 	initialize: function() {
-		this.$submit = $('<a href="#" class="btn btn-large btn-block btn-inverse">Submit</a>');
+		this.$submit = $('<a class="btn btn-large btn-block btn-inverse">Submit</a>');
 		this.$submit.addClass("submit-specimen");
 
 		this.$menu = $("<div></div>");
 		this.$menu.addClass('filter-menu');
 
 		this.$mapContainer = $("<div></div>")
-		this.$mapContainer.addClass('map-container');
+		this.$mapContainer.addClass('viewer');
 
 		this.$el.append(this.$menu);
 		this.$el.append(this.$mapContainer);
@@ -97,29 +97,48 @@ PI.Views.SpecimenNewView = Backbone.View.extend({
 	submit: function() {
 		//uploadStoredFiles();
 		var that = this;
+		console.log
 
 		console.log("submitted");
 		if (that.uploadMapView) {
 			var position = that.uploadMapView.getPosition();
 			var taxonomyValue = this.taxonomyFormView.getVal();
 			var newSpecimen = new PI.Models.Specimen({
-				title: this.$('.title').val(),
-				description: this.$('.description').val(),
+				title: this.$('#specimen-title').val(),
+				description: this.$('#specimen-description').val(),
 				lat: position.lat(),
 				lng: position.lng(),
 				family_id: taxonomyValue.family_id,
 				genus_id: taxonomyValue.genus_id,
-				species_id: taxonomyValue.species_id
+				species_id: taxonomyValue.species_id,
+				date: this.$('input#seendate').val()
 			});
 		}
 
-		newSpecimen.save({}, {success: function() {
-			PI.Store.manualUploader.setParams({
-				specimen_id: newSpecimen.id,
-				authenticity_token: $('meta[name="csrf-token"]').attr('content')
-			});
-			PI.Store.manualUploader.uploadStoredFiles();
-		}});
+		newSpecimen.save({}, {
+			success: function() {
+				PI.Store.manualUploader.setParams({
+					specimen_id: newSpecimen.id,
+					authenticity_token: $('meta[name="csrf-token"]').attr('content')
+				});
+				PI.Store.manualUploader.uploadStoredFiles();
+				window.location.hash = 'specimens/' + newSpecimen.id;
+			},
+			error: function(model, response) {
+				console.log("failed");
+				errors = jQuery.parseJSON(response.responseText)
+				console.log(response);
+				if (errors.description) {
+					this.$('#specimen-description').addClass('error')
+				}
+				if (errors.date) {
+					this.$('input#seendate').addClass('error')
+				}
+				if (response.title) {
+					this.$('input#specimen-title').addClass('error')
+				}
+			}
+		});
 		
 		console.log(newSpecimen);
 	}

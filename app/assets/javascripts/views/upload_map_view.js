@@ -1,14 +1,22 @@
 PI.Views.UploadMapView = Backbone.View.extend({
-	events: {
-		'click a.submit-address': 'setAddress'
-	},
-
 	initialize: function() {
 		var that = this;
-		console.log("derp")
-		this.$map = $("<div></div>").width("600px").height("350px")
-		this.$map.addClass("map");
-		this.$map.gmap3({
+		
+		that.$mapPrompt=$("<p></p>")
+		that.$mapPrompt.addClass('prompt').text("Please drag the marker, or enter an address to set the marker to desired location.");
+		that.$map = $('.map-container');
+	},
+
+	initializeMap: function() {
+		var that = this;
+
+		that.$map.gmap3({
+			clear: {
+				name: "marker"
+			}
+		});
+
+		that.$map.gmap3({
 			getgeoloc:{
 		    callback : function(latLng){
 		      if (latLng){
@@ -21,7 +29,8 @@ PI.Views.UploadMapView = Backbone.View.extend({
 		          },
 					    map:{
 				        options: {
-				          zoom: 10
+				          zoom: 10,
+				          center: latLng
 				        }
 				      }
 		        });
@@ -35,7 +44,8 @@ PI.Views.UploadMapView = Backbone.View.extend({
 							},
 					    map:{
 				        options: {
-				          zoom: 10
+				          zoom: 10,
+				          center: "San Francisco"
 				        }
 				      }
 						});
@@ -43,20 +53,12 @@ PI.Views.UploadMapView = Backbone.View.extend({
 		    }
 		  }
 		});
-		this.$mapPrompt = $("<p></p>")
-		this.$mapPrompt.addClass('prompt').text("Please drag the marker, or enter an address to set the marker to desired location.");
-		this.$addressForm = $("<div></div>").addClass("map-address");
-		this.$addressSearch = $("<input type='text'></input>");
-		this.$addressSearch.addClass('address-search');
-		this.$button = $('<a href="#" class="btn btn-large btn-block btn-inverse">Set to Address</a>').addClass("submit-address");
-		this.$searchError = $("<p></p>");
-		this.$searchError.addClass("search-error");
-		this.$addressForm.append(this.$addressSearch).append(this.$button);
+		that.$el.html(this.$mapPrompt);
 	},
 
 	setAddress: function() {
 		var that = this;
-    $(".map").gmap3({
+	  that.$map.gmap3({
 		  getlatlng:{
 		    address:  this.$addressSearch.val(),
 		    callback: function(results){
@@ -81,8 +83,7 @@ PI.Views.UploadMapView = Backbone.View.extend({
 		        	
 			      });
 			    } else {
-
-			    	that.$searchError.text("Failed to find a location with given address.");
+			    	console.log("fail")
 			    }
 		    }
 		  },
@@ -91,7 +92,7 @@ PI.Views.UploadMapView = Backbone.View.extend({
 	},
 
 	getPosition: function() {
-    var marker = $('.map').gmap3({
+    var marker = this.$map.gmap3({
     	get: {
     		name: "marker"
     	}
@@ -101,10 +102,12 @@ PI.Views.UploadMapView = Backbone.View.extend({
 
 	render: function() {
 		var that = this;
-		that.$el.html(this.$mapPrompt);
-		that.$el.append(this.$map);
-		that.$el.append(this.$addressForm)
-		that.$el.append(this.$searchError);
+
+		PI.Store.map.show();
+
+
+		that.initializeMap();
 		return that;
-	}
+	},
+
 });

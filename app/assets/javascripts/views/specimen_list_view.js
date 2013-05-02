@@ -6,6 +6,7 @@ PI.Views.SpecimenListView = Backbone.View.extend({
 	},
 
 	render: function() {
+		PI.Store.map.hide();
 		var that = this;
 		that.collection.fetch({
 			success: function() {

@@ -5,5 +5,11 @@ PI.Collections.GroupFamilies = Backbone.Collection.extend({
 	model: PI.Models.Family,
 	url: function() {
 		return "/major_groups/" + this.major_group_id + "/families"
+	},
+
+	toAutocomplete: function() {
+		return this.map(function(family) {
+			return family.escape('name');
+		});	
 	}
 });

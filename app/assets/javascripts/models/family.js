@@ -1,16 +1,10 @@
-PI.Models.Family = Backbone.RelationalModel.extend({
+PI.Models.Family = Backbone.Model.extend({
 	urlRoot: "/families",
 
-	relation: [{
-		type: Backbone.HasMany,
-		key: "genus",
-		relationalModel: "PI.Models.Genus",
-		collectionType: "PI.Collections.FamilyGenus",
-
-		reverseRelation: {
-			key: "family",
-			keySource: "family_id",
-			includeInJSON: "id"
+	autocomplete: function() {
+		return {
+			label: this.escape('name'),
+			value: this.id
 		}
-	}]
+	}
 });
