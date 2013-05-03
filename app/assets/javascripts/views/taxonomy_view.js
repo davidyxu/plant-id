@@ -29,7 +29,6 @@ PI.Views.TaxonomyView = Backbone.View.extend({
 
 		that.$( "#family-autocomplete" ).autocomplete({
 	  	source: that.familiesList.toAutocomplete(),
-	  	minLength: 3,
 	  	change: function (event, ui) {
 				var family = that.familiesList.findWhere({name: $(this).val()});
 				if (family) {

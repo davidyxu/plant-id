@@ -84,8 +84,6 @@ PI.Views.SpecimenNewView = Backbone.View.extend({
 		var renderedContent = JST["specimens/new"]({});
 		that.$menu.html(renderedContent);
 
-
-
 		that.$menu.append("<p>Please enter following fields to the best of your knowledge:</p>")
 		that.$menu.append(that.taxonomyFormView.render().el);
 		that.uploadMapView = new PI.Views.UploadMapView();

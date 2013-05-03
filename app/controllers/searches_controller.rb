@@ -5,6 +5,12 @@ class SearchesController < ApplicationController
 		specimens = specimens.where(genus_id: params[:genus_id]) if params[:genus_id]
 		specimens = specimens.where("date < ?", params[:beforedate]) if params[:beforedate]
 		specimens = specimens.where("date > ?", params[:afterdate]) if params[:afterdate]
-		render :json => specimens.all
+		render :json => specimens.all.to_json(
+			:include => {
+				:family => { :only => :name },
+				:genus => { :only => :name },
+				:species => { :only => :name }
+			}
+		)
 	end
 end

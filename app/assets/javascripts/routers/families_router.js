@@ -12,11 +12,14 @@ PI.Routers.FamiliesRouter = Backbone.Router.extend({
 		"specimens/new": "specimenNew",
 		"specimens/:specimen_id/identification": "specimenID",
 		"specimens/:specimen_id": "specimenDetails",
+
+		"identifications/:identification_id": "identificationThead"
 	},
 
 	browse: function(page_id) {
 		var that = this;
 		var specimensPage = new PI.Collections.SpecimensPage(page_id);
+		console.log(specimensPage)
 		var browseView = new PI.Views.SpecimenListView({
 			collection: specimensPage
 		});
@@ -25,11 +28,8 @@ PI.Routers.FamiliesRouter = Backbone.Router.extend({
 
 	browseFavorites: function() {
 		var that = this;
-		var specimensPage = new PI.Collections.SpecimensPage();
 
-		var browseView = new PI.Views.SpecimenListView({
-			collection: PI.Store.favorites
-		});
+		var browseView = new PI.Views.FavoritesListView();
 		that.switchView(browseView);
 	},
 
@@ -37,12 +37,7 @@ PI.Routers.FamiliesRouter = Backbone.Router.extend({
 		var that = this;
 		var indexView = new PI.Views.IndexView();
 
-		// var familyIndexView = new PI.Views.FamilyIndexView({
-		// 	collection: PI.Store.families
-		// });
-		
 		that.switchView(indexView);
-		//this.$rootEl.html(indexView.render().el);
 	},
 
 	specimenNew: function() {
@@ -115,6 +110,10 @@ PI.Routers.FamiliesRouter = Backbone.Router.extend({
 				}
 			})
 		}
+	},
+
+	identificationThread: function(identification_id) {
+
 	},
 
 	switchView: function(newView) {

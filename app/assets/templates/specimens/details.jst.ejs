@@ -1,12 +1,25 @@
 <h1><%= specimen.escape('title') %></h1>
 <p>
+	<% if (specimen.get('family')) { %>
+		<%= specimen.get('family').name %>
+	<% }; %>
+	<% if (specimen.get('genus')) { %>
+		<%= specimen.get('genus').name %>
+	<% }; %>
+	<% if (specimen.get('species')) { %>
+		<%= specimen.get('species').name %>
+	<% }; %>
 	<%= specimen.escape('description') %>
 	<% specimen.get('photos').each(function(photo) { %>
-	<a href="<%=photo.escape('file_path')%>" rel="lightbox[photos]">
+
+	<br>
+
+	<a href="<%=photo.escape('file_path')%>" class="fancybox" rel="gallery">
 		<img src="<%=photo.escape('file_path')%>">
 	</a>
 	<% }); %>
 	<br>
+	
 	<% if (favorited) {%>
 		<a class="favorite-btn" id="unfavorite"> unfavorite </a>
 		<% } else { %>
@@ -15,3 +28,6 @@
 		<% } %>
 </p>
 <a class="back btn btn-large btn-block btn-inverse">Back</a>
+<a class="add-id">Add ID</a>
+<div class=new-form-container>
+</div>

@@ -1,21 +1,43 @@
 PI.Views.SpecimenListView = Backbone.View.extend({
-	initialize: function() {
-		this.$list = $("<div></div>");
-		this.$list.addClass("species-list");
-		this.$el.append(this.$list);
+	events: {
+		'click div.list-element': 'viewSpecimen',
+		'mouseenter div.list-element': 'shade',
+		'mouseleave div.list-element': 'unshade',
+	},
+
+	shade: function() {
+		$(event.target).closest('div.list-element').addClass('shaded')
+	},
+	unshade: function() {
+		$(event.target).closest('div.list-element').removeClass('shaded')
+	},
+
+	viewSpecimen: function() {
+		var specimen_id = event.target.id;
+		if (!specimen_id) {
+			specimen_id = $(event.target).closest('div.list-element').attr('id')
+		}
+		window.location='#specimens/' + specimen_id;
 	},
 
 	render: function() {
-		PI.Store.map.hide();
 		var that = this;
+
+		var header = JST["specimens/header"]();
+
+		that.$el.html(header);
+		
 		that.collection.fetch({
 			success: function() {
-				var renderedContent = JST["specimens/list"]({
-					collection: that.collection
-				})
-				that.$el.html(renderedContent);	
+				that.collection.each(function(model) {
+					var renderedContent = JST["specimens/single"]({
+						model: model	
+					});
+					that.$el.append(renderedContent);
+				});
 			}
-		})
+		});
+
 		return that;
 	}
 });

@@ -1,0 +1,23 @@
+<div id="<%= model.id%>" class="identification list-element">
+	<div class="element-header clearfix">
+		<div class="taxonomy pull-left">
+			<h4>
+				<% if (model.get('family')) { %>
+				<%= model.get('family').name %>
+				<% }; %>
+				<% if (model.get('genus')) { %>
+					<%= model.get('genus').name %>
+				<% }; %>
+				<% if (model.get('species')) { %>
+					<%= model.get('species').name %>
+				<% }; %>
+			</h4>
+		</div>
+		<div class="date pull-right">
+			<%= model.escape('created_at') %>
+		</div>
+	</div>
+	<div class="element-content">
+		<%= model.escape('content') %>
+	</div>
+</div>

@@ -8,8 +8,9 @@ src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en">
 
 <script type="text/javascript">
 	var groupsData = <%= MajorGroup.all.to_json.html_safe %>
-	var favoritesData = <%= Favorite.all.to_json.html_safe %>
+	var favoritesData = <%= Favorite.all.to_json(:include=>:specimen).html_safe %>
 	$(function() {
 		PI.initialize($('.main'), groupsData, favoritesData);
+		$(".fancybox").fancybox();
 	});
 </script>

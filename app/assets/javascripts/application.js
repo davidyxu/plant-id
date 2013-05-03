@@ -17,6 +17,7 @@
 //= require jquery.ui.all
 //
 //= require jquery.fineuploader-3.5.0
+//= jquery.fancybox
 //
 //= require gmap3.min
 //

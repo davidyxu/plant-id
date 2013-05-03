@@ -1,12 +1,29 @@
+require 'mini_magick'
+require 'aws/s3'
+MiniMagick.processor = :gm
+
+AWS::S3::DEFAULT_HOST.replace "s3.amazonaws.com"
+AWS::S3::Base.establish_connection!(
+  :access_key_id     => 'AKIAIKNBNE3H5JA6MGQQ', 
+  :secret_access_key => 'RaiRFmAFdfFl7cz/tD8KaYjxSBnAvTvINXGYT7co'
+)
 module PhotosHelper
 	def savePhoto(params)
-		tmp = params[:qqfile].tempfile
+		tmpfile = params[:qqfile].tempfile
+		file = File.open(tmpfile)
 
-		dir = Rails.root.join("app", "assets", "images", "photos", "specimen", params[:specimen_id]);
-		FileUtils.mkdir_p(dir) unless File.directory?(dir)
+		p tmpfile
+		p tmpfile.path
+		tmpfile.inspect
+		dir="#{params[:specimen_id]}/full/#{params[:qqfile].original_filename}"
+		test = AWS::S3::S3Object.store(dir, tmpfile, 'plantae_photos',:access => :public_read)
+		
+		thumb = MiniMagick::Image.open(tmpfile.path)
 
-	 	file = File.join("app", "assets", "images", "photos", "specimen", params[:specimen_id], params[:qqfile].original_filename)
-		FileUtils.cp(tmp.path, file)
+		thumb.resize "75x75"
+		dir="#{params[:specimen_id]}/thumb/#{params[:qqfile].original_filename}"
+
+		a = AWS::S3::S3Object.store(dir, thumb.to_blob, 'plantae_photos', :access => :public_read)
 
 		prepareParams(params,file)
 	end
@@ -14,9 +31,8 @@ module PhotosHelper
 	def prepareParams(params, file)
 		photo_params = {}
 		photo_params[:specimen_id] = params[:specimen_id]
-		photo_params[:file_size] = params[:qqtotalfilesize]
-		photo_params[:file_path] = File.join("assets", "photos", "specimen", params[:specimen_id], params[:qqfile].original_filename)
-		photo_params[:file_name] = params[:qqfile].original_filename
+		photo_params[:file_path] = "https://s3.amazonaws.com/plantae_photos/#{params[:specimen_id]}/full/#{params[:qqfile].original_filename}"
+		photo_params[:thumb_path] = "https://s3.amazonaws.com/plantae_photos/#{params[:specimen_id]}/full/#{params[:qqfile].original_filename}"
 		return photo_params
 	end
 end

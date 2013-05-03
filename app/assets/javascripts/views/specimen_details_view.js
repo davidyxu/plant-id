@@ -1,7 +1,21 @@
 PI.Views.SpecimenDetailView = Backbone.View.extend({
 	events: {
 		"click a.back": "back",
-		"click a.favorite-btn": "favorite"
+		"click a.favorite-btn": "favorite",
+		"click a.add-id": 'newIDForm'
+	},
+
+	newIDForm: function() {
+		console.log(event.target)
+		$(event.target).toggleClass("open-id-form");
+		if ($(event.target).is('.open-id-form')) {
+			var newIdentificationView = new PI.Views.NewIdentificationView({
+				model: this.model
+			});
+			$('.new-form-container').append(newIdentificationView.render().$el)
+		} else {
+			$('.new-form-container').empty();
+		}
 	},
 
 	favorite: function() {
@@ -28,15 +42,11 @@ PI.Views.SpecimenDetailView = Backbone.View.extend({
 	},
 
 	initialize: function() {
-
 	},
 
 	render: function() {
 		var that = this;
-		PI.Store.test = that.model
-		console.log("lol")
-		console.log(that.model)
-		console.log(that.photos);
+
 		if (PI.Store.favorites.findWhere({specimen_id: that.model.id})) {
 			var favorited = true
 		} else {
@@ -46,11 +56,21 @@ PI.Views.SpecimenDetailView = Backbone.View.extend({
 			specimen: that.model,
 			favorited: favorited
 		});
-		this.specimenMapView = new PI.Views.SpecimenMapView({
-			model: this.model
-		});
-		that.$el.html(renderedContent);
-		that.$el.append(that.specimenMapView.render().$el);
+		that.$el.html(renderedContent)
+
+		var specimenMapView = new PI.Views.SpecimenMapView({
+			model: that.model
+		});;
+		that.$el.append(specimenMapView.render().$el);
+		var specimenIdentifications = new PI.Collections.SpecimenIdentifications(that.model.id)
+		specimenIdentifications.fetch({
+			success: function() {
+				var identificationsListView = new PI.Views.IdentificationsListView({
+					collection: specimenIdentifications
+				})
+				that.$el.append(identificationsListView.render().$el)	
+			}
+		})
 		return that;
 	}
 });

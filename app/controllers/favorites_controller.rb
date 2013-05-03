@@ -7,7 +7,7 @@ class FavoritesController < ApplicationController
 	def create
 		favorite = Favorite.new(user_id: current_user.id, specimen_id: params[:specimen_id])
 		if favorite.save
-			render :json => favorite
+			render :json => favorite.to_json(:include => :specimen)
 		else
 			render :json => favorite.errors, :status => 422
 		end

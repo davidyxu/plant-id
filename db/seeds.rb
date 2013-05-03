@@ -29,7 +29,7 @@ Dir.glob('plants/*.csv') do |file|
 	species.each do |entry|
 		family = Family.find_by_name(entry[0])
 		if family.nil?
-			family = Family.create(name: entry[0])
+			family = Family.create(name: entry[0], major_group_id: 1)
 		end
 		genus = Genus.find_by_name(entry[1])
 		if genus.nil?

@@ -3,20 +3,26 @@ PlantIdApp::Application.routes.draw do
   resources :favorites
   resource :plant_app, :only => [:index]
   resources :photos
-  resources :major_groups do
+  resources :identifications do 
+    resources :specimens, :only => [:index]
+  end
+  
+  resources :major_groups, :only => [:index] do
     resources :families, :only => [:index]
   end
-  resources :families do
+  resources :families, :only => [:index] do
     resources :genus, :only => [:index]
   end
-  resources :specimens do
-    resources :photos, :only => [:index]
-  end
-  resources :searches
-  resources :genus do
+  resources :genus, :only => [:index] do
     resources :species, :only => [:index]
   end
 
+  resources :specimens, :only => [:index, :create, :show] do
+    resources :photos, :only => [:index]
+    resources :identifications, :only => [:index]
+  end
+  resources :searches, :only => [:index]
+  
   root :to => 'plant_apps#index' #temp
 
   # The priority is based upon order of creation:
