@@ -9,6 +9,14 @@
 # contents.map! {|family| family.chomp }
 # contents.each { |family| Family.create!(name: family)}
 
+
+MajorGroup.transaction do
+	MajorGroup.create(name: "Angiosperms")
+	MajorGroup.create(name: "Gymnosperms")
+	MajorGroup.create(name: "Pteridophytes")
+	MajorGroup.create(name: "Bryophytes")
+end
+
 Dir.glob('plants/*.csv') do |file|
 	puts "parsing #{file}"
 	contents = File.readlines(file)
