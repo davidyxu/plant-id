@@ -9,7 +9,7 @@
 
 .map-hider {
  overflow: hidden;
- width: 500px;
+ width: 600px;
  position: relative;
 }
 
@@ -36,8 +36,8 @@
 	position:absolute;
 	margin-left: 20px;
 	left: 10000px;
-	width: 500px;
-	height: 300px;
+	width: 600px;
+	height: 400px;
 }
 
 .ui-autocomplete { height: 200px; overflow-y: scroll; overflow-x: hidden;}
