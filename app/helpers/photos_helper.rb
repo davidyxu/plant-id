@@ -18,7 +18,7 @@ module PhotosHelper
 		dir="#{params[:specimen_id]}/full/#{params[:qqfile].original_filename}"
 		test = AWS::S3::S3Object.store(dir, tmpfile, 'plantae_photos',:access => :public_read)
 		
-		thumb = MiniMagick::Image.open(tmpfile.path)
+		thumb = MiniMagick::Image.open("https://s3.amazonaws.com/plantae_photos/#{params[:specimen_id]}/full/#{params[:qqfile].original_filename}")
 
 		thumb.resize "75x75"
 		dir="#{params[:specimen_id]}/thumb/#{params[:qqfile].original_filename}"
