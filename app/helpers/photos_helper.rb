@@ -32,7 +32,7 @@ module PhotosHelper
 		photo_params = {}
 		photo_params[:specimen_id] = params[:specimen_id]
 		photo_params[:file_path] = "https://s3.amazonaws.com/plantae_photos/#{params[:specimen_id]}/full/#{params[:qqfile].original_filename}"
-		photo_params[:thumb_path] = "https://s3.amazonaws.com/plantae_photos/#{params[:specimen_id]}/full/#{params[:qqfile].original_filename}"
+		photo_params[:thumb_path] = "https://s3.amazonaws.com/plantae_photos/#{params[:specimen_id]}/thumb/#{params[:qqfile].original_filename}"
 		return photo_params
 	end
 end
