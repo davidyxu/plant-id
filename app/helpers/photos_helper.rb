@@ -1,6 +1,6 @@
 require 'mini_magick'
 require 'aws/s3'
-MiniMagick.processor = :gm
+#MiniMagick.processor = :gm
 
 AWS::S3::DEFAULT_HOST.replace "s3.amazonaws.com"
 AWS::S3::Base.establish_connection!(
@@ -12,13 +12,10 @@ module PhotosHelper
 		tmpfile = params[:qqfile].tempfile
 		file = File.open(tmpfile)
 
-		p tmpfile
-		p tmpfile.path
-		tmpfile.inspect
 		dir="#{params[:specimen_id]}/full/#{params[:qqfile].original_filename}"
 		test = AWS::S3::S3Object.store(dir, tmpfile, 'plantae_photos',:access => :public_read)
 		
-		thumb = MiniMagick::Image.open("https://s3.amazonaws.com/plantae_photos/#{params[:specimen_id]}/full/#{params[:qqfile].original_filename}")
+		thumb = MiniMagick::Image.open(tmpfile.path)
 
 		thumb.resize "75x75"
 		dir="#{params[:specimen_id]}/thumb/#{params[:qqfile].original_filename}"
