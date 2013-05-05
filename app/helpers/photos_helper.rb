@@ -4,14 +4,15 @@ MiniMagick.processor = :gm
 
 AWS::S3::DEFAULT_HOST.replace "s3.amazonaws.com"
 AWS::S3::Base.establish_connection!(
-  :access_key_id     => "AKIAIKNBNE3H5JA6MGQQ", 
-  :secret_access_key => "RaiRFmAFdfFl7cz/tD8KaYjxSBnAvTvINXGYT7co"
+  :access_key_id     => ENV['AWS_ACCESS'], 
+  :secret_access_key => ENV['AWS_SECRET']
 )
 module PhotosHelper
 	def savePhoto(params)
 		tmpfile = params[:qqfile].tempfile
 		file = File.open(tmpfile)
 
+		tmpfile.inspect
 		dir="#{params[:specimen_id]}/full/#{params[:qqfile].original_filename}"
 		test = AWS::S3::S3Object.store(dir, tmpfile, 'plantae_photos',:access => :public_read)
 		

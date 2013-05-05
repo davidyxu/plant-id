@@ -12,10 +12,9 @@
 	<%= specimen.escape('description') %>
 	<br>
 	<% specimen.get('photos').each(function(photo) { %>
-
-	<a href="<%=photo.escape('file_path')%>" class="fancybox" rel="gallery">
-		<img src="<%=photo.escape('thumb_path')%>">
-	</a>
+		<a href="<%=photo.escape('file_path')%>" class="fancybox" rel="gallery">
+			<img src="<%=photo.escape('thumb_path')%>">
+		</a>
 	<% }); %>
 	<br>
 	<% if (favorited) {%>
