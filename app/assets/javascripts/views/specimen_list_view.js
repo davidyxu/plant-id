@@ -22,13 +22,19 @@ PI.Views.SpecimenListView = Backbone.View.extend({
 
 	render: function() {
 		var that = this;
-
-		var header = JST["specimens/header"]();
-
-		that.$el.html(header);
-		
+		test = that.collection
+	
 		that.collection.fetch({
 			success: function() {
+				var header = JST["specimens/header"]({
+					totalPages: that.collection.totalPages,
+					page: that.collection.page
+				});
+
+				that.$el.html(header);
+				
+
+						
 				that.collection.each(function(model) {
 					var renderedContent = JST["specimens/single"]({
 						model: model	

@@ -16,7 +16,7 @@
 			</small>
 		</div>
 		<div class="date pull-right">
-			<%= model.escape('created_at') %>
+			<%= new Date(model.escape('created_at')).toDateString() %>
 		</div>
 	</div>
 	<div class="element-content">

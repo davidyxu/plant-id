@@ -25,8 +25,4 @@ PI.Views.SpecimenMapView = Backbone.View.extend({
 		});
 		return that;
 	},
-
-	//favorite or unfavorite
-	//comment
-	//
 });

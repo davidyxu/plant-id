@@ -1,0 +1,22 @@
+<div class="partial-view">
+	<div class="partial-header clear-fix">
+		<div class="title pull-left">
+			<h4>Photos</h4>
+		</div>
+		<div class="add pull-right">
+			Add photo
+		</div>
+	</div>
+
+	<div class="contents">
+		<% if (specimen.get('photos')) { %>
+			<% specimen.get('photos').each(function(photo) { %>
+				<a href="<%=photo.escape('file_path')%>" class="fancybox" rel="gallery">
+					<img src="<%=photo.escape('thumb_path')%>">
+				</a>
+			<% }); %>
+		<% } else { %>
+			No photos provided.	
+		<% }; %>
+	</div>
+</div>

@@ -3,7 +3,7 @@ PI.Views.UploadMapView = Backbone.View.extend({
 		var that = this;
 		
 		that.$mapPrompt=$("<p></p>")
-		that.$mapPrompt.addClass('prompt').text("Please drag the marker, or enter an address to set the marker to desired location.");
+		that.$mapPrompt.addClass('prompt').text("Please drag the marker to the location of sighting.");
 		that.$map = $('.map-container');
 	},
 
@@ -104,8 +104,6 @@ PI.Views.UploadMapView = Backbone.View.extend({
 		var that = this;
 
 		PI.Store.map.show();
-
-
 		that.initializeMap();
 		return that;
 	},

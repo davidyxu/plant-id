@@ -3,6 +3,36 @@
 			<h3> Specimens </h3>
 		</div>
 		<div class="header-pages pull-right">
-		1 2 3 4 5 6 7 8 9 10
+		<% if (totalPages < 10) { %>
+			<% for(var i = 1; i <= totalPages; i++) {%>
+				<% if (i == page) { %>
+					<%= i %>
+				<% } else { %>
+					<a href="#browse/<%= i %>">
+						<%= i %>
+					</a>
+				<% } %>
+			<% } %>
+		<% } else { %>
+			<% for (var i = 1; i <= 3; i++) { %>
+				<% if (i == page) { %>
+					<%= i %>
+				<% } else { %>
+					<a href="#browse/<%= i %>">
+						<%= i %>
+					</a>
+				<% } %>
+			<% } %>
+			<%= " . . . " %>
+			<% for (var i = totalPages - 2; i <= totalPages; i++) { %>
+				<% if (i == page) { %>
+					<%= i %>
+				<% } else { %>
+					<a href="#browse/<%= i %>">
+						<%= i %>
+					</a>
+				<% } %>
+			<% } %>
+		<% } %>
 		</div>
 </div>

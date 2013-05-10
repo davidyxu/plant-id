@@ -1,0 +1,26 @@
+<div class="partial-view">
+	<div class="partial-header clear-fix">
+		<div class="title pull-left">
+			<h4>Taxonomy</h4>
+		</div>
+		<div class="add pull-right">
+			Modify Taxonomy
+		</div>
+	</div>
+
+	<div class="contents">
+	<% if (specimen.get('family')) { %>
+		Family: <%= specimen.get('family').name %>
+		<br>
+		<% if (specimen.get('genus')) { %>
+			Genus: <%= specimen.get('genus').name %>
+			<br>
+		<% }; %>
+		<% if (specimen.get('species')) { %>
+			Species<%= specimen.get('species').name %>
+		<% }; %>
+	<% } else { %>
+		No information provided.
+	<% }; %>
+	</div>
+</div>

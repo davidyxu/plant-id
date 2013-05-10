@@ -1,7 +1,8 @@
 require 'mini_magick'
 require 'aws/s3'
 #MiniMagick.processor = :gm
-
+ENV['AWS_ACCESS'] = "test"
+ENV['AWS_SECRET'] = "test"
 AWS::S3::DEFAULT_HOST.replace "s3.amazonaws.com"
 AWS::S3::Base.establish_connection!(
   :access_key_id     => ENV['AWS_ACCESS'], 

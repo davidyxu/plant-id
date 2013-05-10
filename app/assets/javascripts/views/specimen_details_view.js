@@ -1,21 +1,7 @@
 PI.Views.SpecimenDetailView = Backbone.View.extend({
 	events: {
 		"click a.back": "back",
-		"click a.favorite-btn": "favorite",
-		"click a.add-id": 'newIDForm'
-	},
-
-	newIDForm: function() {
-		console.log(event.target)
-		$(event.target).toggleClass("open-id-form");
-		if ($(event.target).is('.open-id-form')) {
-			var newIdentificationView = new PI.Views.NewIdentificationView({
-				model: this.model
-			});
-			$('.new-form-container').append(newIdentificationView.render().$el)
-		} else {
-			$('.new-form-container').empty();
-		}
+		"click a.favorite-btn": "favorite"
 	},
 
 	favorite: function() {
@@ -42,35 +28,42 @@ PI.Views.SpecimenDetailView = Backbone.View.extend({
 	},
 
 	initialize: function() {
+
 	},
 
 	render: function() {
 		var that = this;
-
+		that.view = "meh"
 		if (PI.Store.favorites.findWhere({specimen_id: that.model.id})) {
 			var favorited = true
 		} else {
 			var favorited = false
 		}
-		var renderedContent = JST["specimens/details"]({
+		var renderedTitle = JST["specimens/title"]({
 			specimen: that.model,
 			favorited: favorited
 		});
-		that.$el.html(renderedContent)
+		that.$el.html(renderedTitle);
+			var galleryView = new PI.Views.SpecimenGalleryView({
+				model: this.model
+			});
+			that.$el.append(galleryView.render().$el);
 
-		var specimenMapView = new PI.Views.SpecimenMapView({
-			model: that.model
-		});;
-		that.$el.append(specimenMapView.render().$el);
-		var specimenIdentifications = new PI.Collections.SpecimenIdentifications(that.model.id)
-		specimenIdentifications.fetch({
-			success: function() {
-				var identificationsListView = new PI.Views.IdentificationsListView({
-					collection: specimenIdentifications
-				})
-				that.$el.append(identificationsListView.render().$el)	
-			}
-		})
+			var descriptionView = new PI.Views.SpecimenDescriptionView({
+				model: this.model
+			});
+			that.$el.append(descriptionView.render().$el);
+
+			this.specimenMapView = new PI.Views.SpecimenMapView({
+				model: this.model
+			});
+			that.$el.append(that.specimenMapView.render().$el);
+		var identificationView = new PI.Views.SpecimenIdentificationView({
+			model: this.model
+		});
+		that.$el.append(identificationView.render().$el);
+		var backButton = $('<a>').addClass("back").text("<< Back")
+		that.$el.append(backButton);
 		return that;
 	}
 });

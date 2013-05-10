@@ -6,9 +6,12 @@ PI.Routers.FamiliesRouter = Backbone.Router.extend({
 
 	routes: {
 		"": "index",
+		
 		"browse/favorites": "browseFavorites",
 		"browse/:page_id": "browse",
+
 		'search': 'search',
+
 		"specimens/new": "specimenNew",
 		"specimens/:specimen_id/identification": "specimenID",
 		"specimens/:specimen_id": "specimenDetails",

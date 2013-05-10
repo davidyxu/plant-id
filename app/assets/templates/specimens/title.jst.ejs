@@ -1,0 +1,14 @@
+<div class="title clear-fix">
+	<div class="pull-left">
+		<h2><%=specimen.escape('title')%></h2>
+	</div>
+
+	<div class="pull-right">
+			
+		<% if (favorited) {%>
+			<a class="favorite-btn" id="unfavorite"> unfavorite </a>
+			<% } else { %>
+			<a class="favorite-btn" id="favorite"> favorite </a>
+		<% }; %>
+	</div>
+</div>
