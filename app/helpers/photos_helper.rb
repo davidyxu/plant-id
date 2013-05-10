@@ -1,18 +1,14 @@
 require 'mini_magick'
 require 'aws/s3'
 #MiniMagick.processor = :gm
-ENV['AWS_ACCESS'] = "test"
-ENV['AWS_SECRET'] = "test"
+
 AWS::S3::DEFAULT_HOST.replace "s3.amazonaws.com"
 AWS::S3::Base.establish_connection!(
-<<<<<<< HEAD
+
   :access_key_id     => ENV['AWS_ACCESS'], 
   :secret_access_key => ENV['AWS_SECRET']
-=======
-  :access_key_id     => ENV["ACCESS_KEY"], 
-  :secret_access_key => ENV["SECRET"]
->>>>>>> 31beb58445544f47360dc22f794f122ef4f2becc
 )
+
 module PhotosHelper
 	def savePhoto(params)
 		tmpfile = params[:qqfile].tempfile
