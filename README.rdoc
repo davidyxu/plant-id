@@ -9,8 +9,10 @@ See it live at plantae-id.david-xu.com
 == Some technologies used
 
 Google Maps for visualization of latlng and geocoding
+
 AWS S3 for serving uploaded photos
-Flat.ui
+
+Flat.ui & Bootstrap
 
 Rails
 1. RMagick and ImageMagick for processing thumbnails
